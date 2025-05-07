@@ -9,14 +9,15 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "api.olmat.web.id",
-        pathname: "/imgs/**",
+        protocol: "http",
+        hostname: "localhost",
+        port: "8000",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "api.olmat.web.id",
-        pathname: "/attachments/**",
+        pathname: "/**",
       },
     ],
   },
