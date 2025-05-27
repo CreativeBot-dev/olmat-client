@@ -118,8 +118,9 @@ export const APPCONSTANT = {
     },
     {
       name: "Lomba Pidato",
-      img: "/comingSoon.png",
-      desc: "Tunjukkan kemampuan berbicara di depan umum dan sampaikan gagasan terbaikmu dalam Lomba Pidato OLMAT UINSA! Lomba ini menjadi wadah bagi peserta untuk mengasah kemampuan retorika dan berpikir kritis dengan tema-tema menarik seputar pendidikan dan generasi muda.",
+      img: "/eventPidato.webp",
+      desc: "Lomba Pidato Bahasa Inggris OLMAT UINSA 2025 adalah ajang kompetisi tingkat nasional untuk siswa SD hingga SMA sederajat. Tunjukkan kemampuan public speaking dan sampaikan ide cemerlangmu bertema “The Beauty of Mathematics in Everyday Life” untuk memenangkan hadiah menarik, e-sertifikat, dan free pass Seminar Nasional OLMAT 2025!",
+      juknis: "/pdf/juknisPidato.pdf",
       options: [
         {
           label: "Peserta",
@@ -129,8 +130,28 @@ export const APPCONSTANT = {
           label: "Tema Pidato",
           value: "The Beauty of Mathematics in Everyday Life",
         },
+        {
+          label: "HTM Gelombang 1",
+          value: "Rp 15.000 (26 Mei – 20 Juni 2025)",
+        },
+        {
+          label: "HTM Gelombang 2",
+          value: "Rp 20.000 (21 Juni – 20 Juli 2025)",
+        },
+        {
+          label: "Technical Meeting",
+          value: "26 Juli 2025 (Wajib ikut)",
+        },
+        {
+          label: "Pengumpulan Video",
+          value: "27 Juli – 15 September 2025",
+        },
+        {
+          label: "Pengumuman Pemenang",
+          value: "30 September 2025",
+        },
       ],
-      registerLink: "",
+      registerLink: "https://forms.gle/Dgs35ntcs4tmEkHBA",
     },
     {
       name: "Mobile Legends",
