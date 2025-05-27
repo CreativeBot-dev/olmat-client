@@ -7,7 +7,7 @@ import { jsPDF } from "jspdf";
 import { useLayout } from "@/hooks/zustand/layout";
 import { IPayment } from "@/interfaces/IPayments";
 import {
-  convertDateServer,
+  convertDate,
   convertDateTimeServer,
   convertRupiah,
 } from "@/helper/common";
@@ -68,7 +68,7 @@ export function DownloadReceiptButton({
           doc.text(participant.name, 10, yPosition, { align: "left" });
 
           // Birth date column
-          const birthDate = convertDateServer(
+          const birthDate = convertDate(
             new Date(participant.birth).toISOString()
           );
           doc.text(birthDate, 112, yPosition);

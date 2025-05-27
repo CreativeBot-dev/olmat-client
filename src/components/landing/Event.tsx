@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { APPCONSTANT } from "@/constant/App.constant";
 import Link from "next/link";
+import AppImage from "../ui/AppImage";
 
 export function SupportingEventsSection() {
   const containerVariants = {
@@ -97,12 +97,24 @@ export function SupportingEventsSection() {
                         </div>
                       ))}
                     </div>
-                    <div>
+                    <div className="flex items-center mt-6 gap-4">
+                      {item.juknis && (
+                        <Link target="_blank" href={item.juknis}>
+                          <Button className="border-brand border text-brand bg-brand/5 rounded-full hover:bg-brand hover:text-white duration-500">
+                            <Download />
+                            Unduh JUKLAK JUKNIS
+                          </Button>
+                        </Link>
+                      )}
                       <Button
                         disabled={item.registerLink === ""}
-                        className="bg-brand hover:bg-brand/90 mt-4 rounded-full"
+                        className="bg-brand hover:bg-brand/90 rounded-full"
                       >
-                        <Link className="" href={item.registerLink || ""}>
+                        <Link
+                          target="_blank"
+                          className="flex gap-2 items-center"
+                          href={item.registerLink || ""}
+                        >
                           {item.registerLink !== "" ? (
                             <>
                               Daftar <ArrowRight className="ml-2 h-4 w-4" />
@@ -120,14 +132,14 @@ export function SupportingEventsSection() {
                   variants={itemVariants}
                   className="order-1 lg:order-2"
                 >
-                  <div className="relative h-[400px]">
+                  <div className="relative aspect-square">
                     <div className="absolute inset-0 bg-white rounded-2xl shadow-xl overflow-hidden">
-                      <Image
-                        src={`${item.img}`}
-                        alt="Mathematical Design Contest"
-                        fill
+                      <AppImage
+                        src={item.img}
+                        alt={`${item.name} Image`}
                         sizes="1"
-                        className="object-cover"
+                        className="w-full h-full overflow-hidden rounded-2xl shadow-xl"
+                        object="object-contain"
                       />
                     </div>
                   </div>

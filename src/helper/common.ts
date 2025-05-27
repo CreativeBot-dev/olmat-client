@@ -17,9 +17,6 @@ export function convertDate(value: string | Date | undefined | null): string {
     return "Tanggal Tidak Valid";
   }
 
-  // Tambahkan 7 jam ke waktu UTC
-  date.setHours(date.getHours() + 7);
-
   const day = date.toLocaleString("id-ID", {
     weekday: "long",
     timeZone: "Asia/Jakarta",
