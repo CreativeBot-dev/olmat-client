@@ -2,16 +2,9 @@ import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { APPCONSTANT } from "@/constant/App.constant";
 import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
-import { EyeIcon, Heart, ShoppingCart } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { EyeIcon, Heart, MessageCircleMore, ShoppingCart } from "lucide-react";
 import { convertRupiah } from "@/helper/common";
-import { Button } from "../ui/button";
 import Link from "next/link";
 
 export default function PromotionSection() {
@@ -107,21 +100,31 @@ export default function PromotionSection() {
                     <CardHeader className="p-4 pb-0 text-foreground/80"></CardHeader>
                     <CardContent className="p-4 pt-2">
                       <p>{item.label}</p>
-                    </CardContent>
-                    <CardFooter className="p-4 pt-0 flex flex-col lg:flex-row justify-between">
                       <p className="font-bold w-full mb-3 text-lg">
                         {item.price === 0
                           ? "Coming Soon"
                           : convertRupiah(item.price)}
                       </p>
-                      <Button
-                        size="sm"
-                        className="bg-brand hover:bg-brandDark/20 hover:text-brand w-full lg:w-fit"
-                      >
-                        <ShoppingCart className="mr-2 h-4 w-4" />
-                        Beli Sekarang
-                      </Button>
-                    </CardFooter>
+                      <div className="grid lg:grid-cols-2 gap-3">
+                        <Link
+                          href={item.chat}
+                          target="_blank"
+                          className=" hover:bg-brandDark/20 text-brand hover:text-brand  border-brand w-full border flex items-center justify-center gap-2 px-4 py-2 rounded-md mb-3  duration-300"
+                        >
+                          <MessageCircleMore className="mr-2 h-4 w-4" />
+                          Chat Sekarang
+                        </Link>
+                        <Link
+                          href={item.link}
+                          target="_blank"
+                          className="bg-brand hover:bg-brandDark/50 text-white hover:text-brand  border-brand w-full border flex items-center justify-center gap-2 px-4 py-2 rounded-md mb-3  duration-300"
+                        >
+                          <ShoppingCart className="mr-2 h-4 w-4" />
+                          Beli Sekarang
+                        </Link>
+                      </div>
+                    </CardContent>
+                    {/* <CardFooter className="p-4 pt-0 flex flex-col lg:flex-row justify-between bg-pink-300"></CardFooter> */}
                   </Card>
                 </motion.div>
               ))}
