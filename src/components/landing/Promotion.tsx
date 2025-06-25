@@ -109,7 +109,7 @@ export default function PromotionSection() {
                         <Link
                           href={item.chat}
                           target="_blank"
-                          className=" hover:bg-brandDark/20 text-brand hover:text-brand  border-brand w-full border flex items-center justify-center gap-2 px-4 py-2 rounded-md mb-3  duration-300"
+                          className=" hover:bg-brandDark/20 text-brand hover:text-brand  border-brand w-full border flex items-center justify-center gap-2 px-4 py-2 rounded-md  duration-300"
                         >
                           <MessageCircleMore className="mr-2 h-4 w-4" />
                           Chat Sekarang
@@ -117,7 +117,7 @@ export default function PromotionSection() {
                         <Link
                           href={item.link}
                           target="_blank"
-                          className="bg-brand hover:bg-brandDark/50 text-white hover:text-brand  border-brand w-full border flex items-center justify-center gap-2 px-4 py-2 rounded-md mb-3  duration-300"
+                          className="bg-brand hover:bg-brandDark/50 text-white hover:text-brand  border-brand w-full border flex items-center justify-center gap-2 px-4 py-2 rounded-md  duration-300"
                         >
                           <ShoppingCart className="mr-2 h-4 w-4" />
                           Beli Sekarang
