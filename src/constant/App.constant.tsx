@@ -142,12 +142,20 @@ export const APPCONSTANT = {
           value: "Rp 20.000 (21 Juni – 20 Juli 2025)",
         },
         {
+          label: "HTM Gelombang 3",
+          value: "Rp 20.000 (21 Juli – 20 Agustus 2025)",
+        },
+        {
           label: "Technical Meeting",
-          value: "26 Juli 2025 (Wajib ikut)",
+          value: "23 Agustus 2025 (Wajib ikut)",
         },
         {
           label: "Pengumpulan Video",
-          value: "27 Juli – 15 September 2025",
+          value: "24 Agustus – 20 September 2025",
+        },
+        {
+          label: "Penjurian",
+          value: "21 – 29 September 2025",
         },
         {
           label: "Pengumuman Pemenang",
