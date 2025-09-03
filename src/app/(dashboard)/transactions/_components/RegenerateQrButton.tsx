@@ -8,10 +8,10 @@ import { LoaderIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { AxiosError } from "axios";
 
-export default function RegenerateQrButton({ id }: { id?: number }) {
+export default function RegenerateQrButton({ id }: { id: string }) {
   const router = useRouter();
   const { setIsSuccess, setError, setIsLoading, isLoading } = useLayout();
-  const handleRegenerate = async (payId: number) => {
+  const handleRegenerate = async (payId: string) => {
     setIsLoading(true);
     try {
       const res = await regenerateQrAction(payId);
@@ -26,12 +26,12 @@ export default function RegenerateQrButton({ id }: { id?: number }) {
   };
   return (
     <Button
-      onClick={() => handleRegenerate(id as number)}
+      onClick={() => handleRegenerate(id)}
       className="w-full"
       disabled={isLoading || !id}
     >
       {isLoading ? (
-        <div>
+        <div className="flex items-center gap-2">
           <LoaderIcon className="animate-spin" /> Meminta QR Baru
         </div>
       ) : (

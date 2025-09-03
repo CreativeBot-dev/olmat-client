@@ -37,6 +37,17 @@ interface IProps {
   };
 }
 
+// Fungsi utilitas untuk menentukan status transaksi (expired jika pending dan sudah lewat 2 hari)
+function getStatusNow(transaction: IPayment) {
+  if (transaction?.status === "pending" && transaction?.expiredAt) {
+    const expiredAt = new Date(transaction.expiredAt);
+    if (new Date() > expiredAt) {
+      return "expired";
+    }
+  }
+  return transaction?.status;
+}
+
 export default function TransactionClient({
   transactions,
   metadata,
@@ -45,13 +56,6 @@ export default function TransactionClient({
   const path = usePathname();
   const router = useRouter();
   const encodedCurrentUrl = useEncodedUrl();
-
-  // function changeStatus(status: string, expiredAt: Date | string) {
-  //   if (status === "pending" && new Date() > new Date(expiredAt)) {
-  //     return "expired";
-  //   }
-  //   return status;
-  // }
 
   const handlePageChange = (page: number) => {
     router.push(`${path}?page=${page}&limit=${params.limit}`);
@@ -97,56 +101,52 @@ export default function TransactionClient({
                 <TableRow>
                   <TableHead className="text-center">No.</TableHead>
                   <TableHead>Invoice</TableHead>
-                  {/* <TableHead className="text-center">
-                    Batas Pembayaran
-                  </TableHead> */}
                   <TableHead className="text-center">Jumlah Peserta</TableHead>
                   <TableHead className="hidden md:table-cell text-center">
                     Total Harga
                   </TableHead>
-
                   <TableHead className="text-center">Status</TableHead>
                   <TableHead className="text-center">Aksi</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {transactions.map((transaction, i) => (
-                  <TableRow key={i}>
-                    <TableCell className="text-center">{i + 1}</TableCell>
-                    <TableCell>{transaction.invoice}</TableCell>
-                    {/* <TableCell className="font-medium text-center">
-                      {convertDateTime(transaction.expiredAt)}
-                    </TableCell> */}
-                    <TableCell className="hidden text-center md:table-cell">
-                      {transaction.participantAmount} Peserta
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell text-center">
-                      {convertRupiah(transaction.totalAmount)}
-                    </TableCell>
-                    <TableCell className="flex justify-center items-center">
-                      <div
-                        className={`inline-flex items-center rounded-full mt-1 px-2.5 py-0.5 text-xs font-medium ${
-                          transaction.status === "paid"
-                            ? "bg-green-100 text-green-800"
-                            : transaction.status === "pending"
-                            ? "bg-yellow-100 text-yellow-800"
-                            : "bg-red-100 text-red-800"
-                        }`}
-                      >
-                        {transaction.status}
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-center">
-                      <Button variant="ghost" size="sm" asChild>
-                        <Link
-                          href={`/transactions/${transaction.invoice}?returnUrl=${encodedCurrentUrl}`}
+                {transactions.map((transaction, i) => {
+                  const statusNow = getStatusNow(transaction);
+                  return (
+                    <TableRow key={i}>
+                      <TableCell className="text-center">{i + 1}</TableCell>
+                      <TableCell>{transaction.invoice}</TableCell>
+                      <TableCell className="hidden text-center md:table-cell">
+                        {transaction.participantAmount} Peserta
+                      </TableCell>
+                      <TableCell className="hidden md:table-cell text-center">
+                        {convertRupiah(transaction.totalAmount)}
+                      </TableCell>
+                      <TableCell className="flex justify-center items-center">
+                        <div
+                          className={`inline-flex items-center rounded-full mt-1 px-2.5 py-0.5 text-xs font-medium ${
+                            statusNow === "paid"
+                              ? "bg-green-100 text-green-800"
+                              : statusNow === "pending"
+                              ? "bg-yellow-100 text-yellow-800"
+                              : "bg-red-100 text-red-800"
+                          }`}
                         >
-                          Lihat
-                        </Link>
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                          {statusNow}
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <Button variant="ghost" size="sm" asChild>
+                          <Link
+                            href={`/transactions/${transaction.invoice}?returnUrl=${encodedCurrentUrl}`}
+                          >
+                            Lihat
+                          </Link>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </div>
