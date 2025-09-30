@@ -76,10 +76,6 @@ export function SupportingEventsSection() {
                   className="order-2 lg:order-1"
                 >
                   <div className="space-y-6">
-                    {/* <div className="inline-flex items-center px-3 py-1 rounded-full bg-brand/10 text-brand text-sm font-medium mb-2">
-                      <Brush className="h-4 w-4 mr-2" />
-                      Creative Competition
-                    </div> */}
                     <h3 className="text-3xl font-bold text-secondBrand">
                       {item.name}
                     </h3>
@@ -90,7 +86,7 @@ export function SupportingEventsSection() {
                           <div className="h-6 w-6 flex items-center justify-center mt-0.5 mr-3">
                             <span className="bg-brand text-xs h-2 w-2 rounded-full font-bold"></span>
                           </div>
-                          <div>
+                          <div className="w-full">
                             <p className="font-medium">{opt.label}</p>
                             <p className="text-gray-600">{opt.value}</p>
                           </div>

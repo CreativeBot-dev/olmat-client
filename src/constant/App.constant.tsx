@@ -105,19 +105,38 @@ export const APPCONSTANT = {
   supportEvent: [
     {
       name: "Seminar Nasional",
-      img: "/comingSoon.png",
-      desc: "Seminar ini menghadirkan narasumber inspiratif yang akan membahas topik menarik seputar dunia pendidikan, matematika, dan teknologi. Selain itu, sesi ini juga akan dipandu oleh MC yang interaktif dan penuh semangat.",
+      img: "/seminar.webp",
+      desc: "Empowering Young Mathematicians, Fostering Mathematical Literacy, and Building a Strong Foundation for Future Succes.",
       options: [
         {
           label: "Narasumber",
-          value: "Coming Soon",
+          value:
+            "Bu Lingga (Content Creator, 2.9 Juta Followers TikTok), Guess Who is Coming",
         },
         {
-          label: "Pembawa Acara",
-          value: "Coming Soon",
+          label: "Moderator",
+          value:
+            "Elen Riswana (1st Most Outstanding Student of Mathematics UINSA 2023, Rector UiTM Malaysia Grand Award of UIYSC 2022, Honorable Delegate of Asia Europe Conference & Exchange Program)",
+        },
+        {
+          label: "Hari/Tanggal",
+          value: "Sabtu, 18 Oktober 2025",
+        },
+        {
+          label: "Waktu",
+          value: "Open Gate 07.00 – 09.00 WIB, Acara 09.00 WIB – Selesai",
+        },
+        {
+          label: "Tempat",
+          value: "Kampus 1 UIN Sunan Ampel Surabaya",
+        },
+        {
+          label: "Benefit",
+          value: "Certificate, Knowledge, Snack, Relation, Entertainment",
         },
       ],
-      registerLink: "",
+      registerLink:
+        "https://docs.google.com/forms/d/e/1FAIpQLScywD0X3oAE8O7RyFYTPfaQd1OGCGIpaivQ0rbYHwIyyjomMA/viewform",
     },
     {
       name: "Lomba Pidato",
