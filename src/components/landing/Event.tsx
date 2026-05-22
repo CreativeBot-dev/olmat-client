@@ -7,7 +7,6 @@ import Link from "next/link";
 import AppImage from "../ui/AppImage";
 import AppTitle from "../ui/AppTittle";
 import { Starfield } from "./Starfield";
-import { Planet } from "./Planet";
 
 export function SupportingEventsSection() {
   const containerVariants = {
