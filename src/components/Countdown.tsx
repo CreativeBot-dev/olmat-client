@@ -82,9 +82,9 @@ export default function Countdown({ start, now, end }: IProps) {
   };
 
   return (
-    <div className=" md:px-10 backdrop-blur-sm  bg-white/20 rounded-2xl shadow-lg w-full max-w-5xl py-5 md:translate-y-1/2">
+    <div className=" md:px-10 glass rounded-2xl shadow-lg w-full max-w-5xl py-5 md:translate-y-1/2">
       <div>
-        <p className="text-sm text-center font-dancing text-brand">
+        <p className="text-sm text-center font-dancing text-white">
           {startDate &&
             endDate &&
             nowDate < startDate &&
@@ -95,7 +95,7 @@ export default function Countdown({ start, now, end }: IProps) {
             nowDate < endDate &&
             "Penutupan Pendaftaran"}
         </p>
-        <p className="text-xl text-center font-dancing font-bold text-secondBrand">
+        <p className="text-xl text-center font-dancing font-bold text-brandLight">
           Olimpiade Matematika UINSA
         </p>
       </div>
@@ -103,16 +103,15 @@ export default function Countdown({ start, now, end }: IProps) {
         {/* Background pattern overlay */}
 
         <div
-          className={`grid ${
-            showMonths ? "grid-cols-5" : "grid-cols-4"
-          } gap-10 w-full`}
+          className={`grid ${showMonths ? "grid-cols-5" : "grid-cols-4"
+            } gap-10 w-full`}
         >
           {showMonths && (
             <div className="flex flex-col justify-center items-center gap-3">
               <p className="text-4xl md:text-5xl font-dancing font-bold bg-gradient-to-t from-yellow-400 via-yellow-500 to-yellow-600 text-transparent bg-clip-text">
                 {formatNumber(timeLeft.months)}
               </p>
-              <p className="text-xs uppercase font-medium text-gray-800">
+              <p className="text-xs uppercase font-medium text-white">
                 Bulan
               </p>
             </div>
@@ -122,21 +121,21 @@ export default function Countdown({ start, now, end }: IProps) {
             <p className="text-4xl md:text-5xl font-dancing font-bold bg-gradient-to-t from-yellow-400 via-yellow-500 to-yellow-600 text-transparent bg-clip-text">
               {formatNumber(timeLeft.days)}
             </p>
-            <p className="text-xs uppercase font-medium text-gray-800">Hari</p>
+            <p className="text-xs uppercase font-medium text-white">Hari</p>
           </div>
 
           <div className="flex flex-col justify-center items-center gap-3">
             <p className="text-4xl md:text-5xl font-dancing font-bold bg-gradient-to-t from-yellow-400 via-yellow-500 to-yellow-600 text-transparent bg-clip-text">
               {formatNumber(timeLeft.hours)}
             </p>
-            <p className="text-xs uppercase font-medium text-gray-800">Jam</p>
+            <p className="text-xs uppercase font-medium text-white">Jam</p>
           </div>
 
           <div className="flex flex-col justify-center items-center gap-3">
             <p className="text-4xl md:text-5xl font-dancing font-bold bg-gradient-to-t from-yellow-400 via-yellow-500 to-yellow-600 text-transparent bg-clip-text">
               {formatNumber(timeLeft.minutes)}
             </p>
-            <p className="text-xs uppercase font-medium text-gray-800">Menit</p>
+            <p className="text-xs uppercase font-medium text-white">Menit</p>
           </div>
 
           {/* {!showMonths && ( */}
@@ -144,7 +143,7 @@ export default function Countdown({ start, now, end }: IProps) {
             <p className="text-4xl md:text-5xl font-dancing font-bold bg-gradient-to-t from-yellow-400 via-yellow-500 to-yellow-600 text-transparent bg-clip-text">
               {formatNumber(timeLeft.seconds)}
             </p>
-            <p className="text-xs uppercase font-medium text-gray-800">Detik</p>
+            <p className="text-xs uppercase font-medium text-white">Detik</p>
           </div>
           {/* )} */}
         </div>

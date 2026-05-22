@@ -59,7 +59,17 @@
     --chart-5: 27 87% 67%;
 
     --radius: 0.5rem;
+
+    --gradient-cosmic: radial-gradient(ellipse at top, oklch(0.35 0.12 280) 0%, var(--space-deep) 55%, oklch(0.14 0.05 268) 100%);
+    --gradient-nebula: linear-gradient(135deg, var(--space-blue), var(--space-violet) 55%, var(--space-gold));
+    --gradient-aurora: linear-gradient(120deg, var(--space-mist), var(--space-ice) 40%, var(--space-star));
+    --gradient-text: linear-gradient(120deg, var(--space-star), var(--space-mist) 50%, var(--space-gold));
+
+    --shadow-glow: 0 0 60px -10px oklch(0.83 0.13 95 / 0.45);
+    --shadow-nebula: 0 30px 80px -30px oklch(0.41 0.09 295 / 0.8);
+    --shadow-card: 0 10px 40px -10px oklch(0.14 0.05 268 / 0.8);
   }
+
   .dark {
     --background: 222.2 84% 4.9%;
 
@@ -115,7 +125,199 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+
+@layer utilities {
+  .glass {
+    background: oklch(0.26 0.07 268 / 0.45);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid oklch(0.71 0.08 263 / 0.18);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-strong {
+    background: oklch(0.21 0.07 268 / 0.7);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid oklch(0.71 0.08 263 / 0.22);
+  }
+
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-nebula {
+    background: var(--gradient-nebula);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-nebula {
+    box-shadow: var(--shadow-nebula);
+  }
+
+  .ring-glow {
+    box-shadow: 0 0 0 1px oklch(0.83 0.13 95 / 0.4), 0 0 40px -8px oklch(0.83 0.13 95 / 0.55);
+  }
+
+  @keyframes twinkle {
+
+    0%,
+    100% {
+      opacity: 0.2;
+      transform: scale(0.9);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+
+  @keyframes float-slow {
+
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+
+    50% {
+      transform: translateY(-24px) translateX(10px);
+    }
+  }
+
+  @keyframes float-medium {
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-16px) rotate(6deg);
+    }
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg) translateX(140px) rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg) translateX(140px) rotate(-360deg);
+    }
+  }
+
+  /* @keyframes drift {
+    0% {
+      transform: translateX(-10%);
+      opacity: 0;
+    }
+
+    20% {
+      opacity: 1;
+    }
+
+    80% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(110%);
+      opacity: 0;
+    }
+  } */
+  .animate-drift {
+    --start-x: -300px;
+    --start-y: -100px;
+    --end-x: 120vw;
+    --end-y: 300px;
+
+    --angle: atan2(calc(var(--end-y) - var(--start-y)),
+        calc(var(--end-x) - var(--start-x)));
+
+    animation: drift 4s linear infinite;
+  }
+
+  @keyframes drift {
+    0% {
+      transform:
+        translateX(var(--start-x)) translateY(var(--start-y)) rotate(var(--angle));
+      opacity: 0;
+    }
+
+    15%,
+    70% {
+      opacity: 1;
+    }
+
+    100% {
+      transform:
+        translateX(var(--end-x)) translateY(var(--end-y)) rotate(var(--angle));
+      opacity: 0;
+    }
+  }
+
+  @keyframes glow-pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 24px -4px oklch(0.83 0.13 95 / 0.4);
+    }
+
+    50% {
+      box-shadow: 0 0 60px -2px oklch(0.83 0.13 95 / 0.75);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-twinkle {
+    animation: twinkle 3.5s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 9s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 6s ease-in-out infinite;
+  }
+
+  .animate-orbit {
+    animation: orbit 22s linear infinite;
+  }
+
+  .animate-drift {
+    animation: drift 6s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-rise {
+    animation: rise 0.7s ease-out both;
   }
 }

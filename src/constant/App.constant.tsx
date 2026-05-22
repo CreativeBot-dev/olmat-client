@@ -24,26 +24,29 @@ export const APPCONSTANT = {
     shopee: {
       name: "Shopee",
       icon: <SiShopee />,
-      desc: "Buku Olmat Uinsa",
+      desc: "Buku Paket Soal & Pembahasan OLMAT",
       username: "",
       item: [
         {
-          tumbnail: "/comingSoon.png",
+          tumbnail: "/social/book_sd.webp",
           label: "Buku Olmat Jenjang SD",
-          price: 0,
-          link: "#",
+          price: 70000,
+          link: "https://id.shp.ee/4pU9zCc",
+          chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
         },
         {
-          tumbnail: "/comingSoon.png",
+          tumbnail: "/social/book_smp.webp",
           label: "Buku Olmat Jenjang SMP",
-          price: 0,
-          link: "#",
+          price: 70000,
+          link: "https://id.shp.ee/4pU9zCc",
+          chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
         },
         {
-          tumbnail: "/comingSoon.png",
+          tumbnail: "/social/book_sma.webp",
           label: "Buku Olmat Jenjang SMA",
-          price: 0,
-          link: "#",
+          price: 70000,
+          link: "https://id.shp.ee/4pU9zCc",
+          chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
         },
       ],
     },
@@ -102,24 +105,44 @@ export const APPCONSTANT = {
   supportEvent: [
     {
       name: "Seminar Nasional",
-      img: "/comingSoon.png",
-      desc: "Seminar ini menghadirkan narasumber inspiratif yang akan membahas topik menarik seputar dunia pendidikan, matematika, dan teknologi. Selain itu, sesi ini juga akan dipandu oleh MC yang interaktif dan penuh semangat.",
+      img: "/seminar.webp",
+      desc: "Empowering Young Mathematicians, Fostering Mathematical Literacy, and Building a Strong Foundation for Future Succes.",
       options: [
         {
           label: "Narasumber",
-          value: "Coming Soon",
+          value:
+            "Bu Lingga (Content Creator, 2.9 Juta Followers TikTok), Guess Who is Coming",
         },
         {
-          label: "Pembawa Acara",
-          value: "Coming Soon",
+          label: "Moderator",
+          value:
+            "Elen Riswana (1st Most Outstanding Student of Mathematics UINSA 2023, Rector UiTM Malaysia Grand Award of UIYSC 2022, Honorable Delegate of Asia Europe Conference & Exchange Program)",
+        },
+        {
+          label: "Hari/Tanggal",
+          value: "Sabtu, 18 Oktober 2025",
+        },
+        {
+          label: "Waktu",
+          value: "Open Gate 07.00 – 09.00 WIB, Acara 09.00 WIB – Selesai",
+        },
+        {
+          label: "Tempat",
+          value: "Kampus 1 UIN Sunan Ampel Surabaya",
+        },
+        {
+          label: "Benefit",
+          value: "Certificate, Knowledge, Snack, Relation, Entertainment",
         },
       ],
-      registerLink: "",
+      registerLink:
+        "https://docs.google.com/forms/d/e/1FAIpQLScywD0X3oAE8O7RyFYTPfaQd1OGCGIpaivQ0rbYHwIyyjomMA/viewform",
     },
     {
       name: "Lomba Pidato",
-      img: "/comingSoon.png",
-      desc: "Tunjukkan kemampuan berbicara di depan umum dan sampaikan gagasan terbaikmu dalam Lomba Pidato OLMAT UINSA! Lomba ini menjadi wadah bagi peserta untuk mengasah kemampuan retorika dan berpikir kritis dengan tema-tema menarik seputar pendidikan dan generasi muda.",
+      img: "/eventPidato.webp",
+      desc: "Lomba Pidato Bahasa Inggris OLMAT UINSA 2025 adalah ajang kompetisi tingkat nasional untuk siswa SD hingga SMA sederajat. Tunjukkan kemampuan public speaking dan sampaikan ide cemerlangmu bertema “The Beauty of Mathematics in Everyday Life” untuk memenangkan hadiah menarik, e-sertifikat, dan free pass Seminar Nasional OLMAT 2025!",
+      juknis: "/pdf/juknisPidato.pdf",
       options: [
         {
           label: "Peserta",
@@ -129,8 +152,36 @@ export const APPCONSTANT = {
           label: "Tema Pidato",
           value: "The Beauty of Mathematics in Everyday Life",
         },
+        {
+          label: "HTM Gelombang 1",
+          value: "Rp 15.000 (26 Mei – 20 Juni 2025)",
+        },
+        {
+          label: "HTM Gelombang 2",
+          value: "Rp 20.000 (21 Juni – 20 Juli 2025)",
+        },
+        {
+          label: "HTM Gelombang 3",
+          value: "Rp 20.000 (21 Juli – 20 Agustus 2025)",
+        },
+        {
+          label: "Technical Meeting",
+          value: "23 Agustus 2025 (Wajib ikut)",
+        },
+        {
+          label: "Pengumpulan Video",
+          value: "24 Agustus – 20 September 2025",
+        },
+        {
+          label: "Penjurian",
+          value: "21 – 29 September 2025",
+        },
+        {
+          label: "Pengumuman Pemenang",
+          value: "30 September 2025",
+        },
       ],
-      registerLink: "",
+      registerLink: "https://forms.gle/Dgs35ntcs4tmEkHBA",
     },
     {
       name: "Mobile Legends",

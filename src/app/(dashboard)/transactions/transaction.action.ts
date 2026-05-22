@@ -77,10 +77,10 @@ export async function getInvAction(invoice: string) {
   }
 }
 
-export async function regenerateQrAction(id: number) {
+export async function regenerateQrAction(inv: string) {
   try {
     const res = await api.post(`/participant/regenerate-payment`, {
-      oldPaymentId: id,
+      oldInvoice: inv,
       paymentCode: "QRIS",
     });
     return {
