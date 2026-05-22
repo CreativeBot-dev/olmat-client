@@ -72,14 +72,14 @@ export function AboutSection({ participanCountData }: IProps) {
   };
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-b from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent">
             Tentang {APPCONSTANT.name}
           </h2>
-          <div className="w-20 h-1 bg-brand mx-auto mb-6"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto italic">
+          <div className="w-20 h-1 bg-brandLight mx-auto mb-6"></div>
+          <p className="text-lg bg-gradient-to-b from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent max-w-3xl mx-auto italic">
             {APPCONSTANT.theme}
           </p>
         </div>
@@ -95,10 +95,10 @@ export function AboutSection({ participanCountData }: IProps) {
             >
               {APPCONSTANT.about.item.map((data, i) => (
                 <motion.div key={i} variants={itemVariants}>
-                  <h3 className="text-2xl font-bold mb-4 text-secondBrand">
+                  <h3 className="text-2xl font-bold mb-4 bg-gradient-to-b from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent">
                     {data.label}
                   </h3>
-                  <p className="text-gray-700 indent-10 text-justify">
+                  <p className="text-white indent-10 text-justify">
                     {data.desc}
                   </p>
                 </motion.div>
@@ -108,7 +108,7 @@ export function AboutSection({ participanCountData }: IProps) {
                   target="_blank"
                   href={"/pdf/JUKLAK JUKNIS OLMAT UINSA 2025.pdf"}
                 >
-                  <Button className="border-brand border text-brand bg-brand/5 rounded-full hover:bg-brand hover:text-white duration-500">
+                  <Button className="text-brandDark font-bold bg-gradient-to-b from-brandLight via-white to-brandLight rounded-full hover:scale-110 duration-500 ease-in-out transition-all">
                     <Download />
                     Unduh JUKLAK JUKNIS
                   </Button>
@@ -150,17 +150,17 @@ export function AboutSection({ participanCountData }: IProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between"
+                className="glass rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between"
               >
                 <div>
-                  <div className="h-12 w-12 rounded-full text-2xl text-brand bg-brandDark/20 flex items-center justify-center mb-4">
+                  <div className="h-12 w-12 rounded-full text-2xl text-brandDark bg-brandLight flex items-center justify-center mb-4">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg font-bold mb-2">{item.label}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                  <h3 className="text-lg text-yellow-400 font-bold mb-2">{item.label}</h3>
+                  <p className="text-white text-sm">{item.desc}</p>
                 </div>
                 {item.count > 100 && (
-                  <div className="flex justify-between p-2 rounded-lg bg-brandDark/20 mt-3 text-brand">
+                  <div className="flex justify-between p-2 rounded-lg bg-brangLowLight mt-3 text-black">
                     <p className="font-medium">{item.countLabel}</p>
                     <p className="font-bold">{item.count}+</p>
                   </div>

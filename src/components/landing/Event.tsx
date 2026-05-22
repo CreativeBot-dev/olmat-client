@@ -1,10 +1,13 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { APPCONSTANT } from "@/constant/App.constant";
 import Link from "next/link";
+import AppImage from "../ui/AppImage";
+import AppTitle from "../ui/AppTittle";
+import { Starfield } from "./Starfield";
+import { Planet } from "./Planet";
 
 export function SupportingEventsSection() {
   const containerVariants = {
@@ -27,17 +30,22 @@ export function SupportingEventsSection() {
   };
 
   return (
-    <section id="events" className="py-20 bg-white">
+    <section id="events" className="py-20 ">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand">
-            Acara Pendukung
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <AppTitle>
+              Acara Pendukung
+            </AppTitle>
           </h2>
-          <div className="w-20 h-1 bg-brand mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-brandLight mx-auto mb-6"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Selain kompetisi utama, OLMAT UINSA menghadirkan beragam acara seru
-            yang menambah wawasan dan semangat kebersamaan. Jangan lewatkan
-            keseruannya!
+            <AppTitle>
+              Selain kompetisi utama, OLMAT UINSA menghadirkan beragam acara seru
+              yang menambah wawasan dan semangat kebersamaan. Jangan lewatkan
+              keseruannya!
+            </AppTitle>
+
           </p>
         </div>
 
@@ -48,13 +56,13 @@ export function SupportingEventsSection() {
           <div className="flex justify-center mb-8">
             <TabsList
               className="grid w-full max-w-md h-full items-center justify-center
-             grid-cols-1 md:grid-cols-3 gap-2"
+             grid-cols-1 md:grid-cols-3 gap-2 glass-strong"
             >
               {APPCONSTANT.supportEvent.map((item, i) => (
                 <TabsTrigger
                   key={i}
                   value={item.name}
-                  className="data-[state=active]:bg-brand data-[state=active]:text-white"
+                  className="data-[state=active]:bg-brandLight data-[state=active]:text-black text-white"
                 >
                   {item.name}
                 </TabsTrigger>
@@ -63,7 +71,7 @@ export function SupportingEventsSection() {
           </div>
 
           {APPCONSTANT.supportEvent.map((item, i) => (
-            <TabsContent value={item.name} key={i}>
+            <TabsContent value={item.name} key={i} className="glass p-10 rounded-3xl">
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -71,38 +79,52 @@ export function SupportingEventsSection() {
                 viewport={{ once: true }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
+                <Starfield count={100} />
                 <motion.div
                   variants={itemVariants}
                   className="order-2 lg:order-1"
                 >
                   <div className="space-y-6">
-                    {/* <div className="inline-flex items-center px-3 py-1 rounded-full bg-brand/10 text-brand text-sm font-medium mb-2">
-                      <Brush className="h-4 w-4 mr-2" />
-                      Creative Competition
-                    </div> */}
-                    <h3 className="text-3xl font-bold text-secondBrand">
+
+                    <AppTitle className="font-bold text-3xl">
                       {item.name}
-                    </h3>
-                    <p className="text-gray-700">{item.desc}</p>
+                    </AppTitle>
+                    <p className="text-white">{item.desc}</p>
                     <div className="space-y-4">
                       {item.options.map((opt, i) => (
                         <div key={i} className="flex items-start">
                           <div className="h-6 w-6 flex items-center justify-center mt-0.5 mr-3">
-                            <span className="bg-brand text-xs h-2 w-2 rounded-full font-bold"></span>
+                            <span className="bg-brandLight text-xs h-2 w-2 rounded-full font-bold"></span>
                           </div>
-                          <div>
-                            <p className="font-medium">{opt.label}</p>
-                            <p className="text-gray-600">{opt.value}</p>
+                          <div className="w-full">
+                            <p className="font-medium">
+                              <AppTitle>
+                                {opt.label}
+                              </AppTitle>
+                            </p>
+                            <p className="text-white">{opt.value}</p>
                           </div>
                         </div>
                       ))}
                     </div>
-                    <div>
+                    <div className="flex items-center mt-6 gap-4">
+                      {item.juknis && (
+                        <Link target="_blank" href={item.juknis}>
+                          <Button className="border-brandLight border text-brandLight bg-brandLight/5 rounded-full hover:bg-brand hover:text-white duration-500">
+                            <Download />
+                            Unduh JUKLAK JUKNIS
+                          </Button>
+                        </Link>
+                      )}
                       <Button
                         disabled={item.registerLink === ""}
-                        className="bg-brand hover:bg-brand/90 mt-4 rounded-full"
+                        className="text-brandDark font-bold bg-gradient-to-b from-brandLight via-white to-brandLight rounded-full hover:scale-110 duration-500 ease-in-out transition-all"
                       >
-                        <Link className="" href={item.registerLink || ""}>
+                        <Link
+                          target="_blank"
+                          className="flex gap-2 items-center"
+                          href={item.registerLink || ""}
+                        >
                           {item.registerLink !== "" ? (
                             <>
                               Daftar <ArrowRight className="ml-2 h-4 w-4" />
@@ -120,14 +142,14 @@ export function SupportingEventsSection() {
                   variants={itemVariants}
                   className="order-1 lg:order-2"
                 >
-                  <div className="relative h-[400px]">
-                    <div className="absolute inset-0 bg-white rounded-2xl shadow-xl overflow-hidden">
-                      <Image
-                        src={`${item.img}`}
-                        alt="Mathematical Design Contest"
-                        fill
+                  <div className="relative aspect-square">
+                    <div className="absolute inset-0 shadow-none rounded-2xl overflow-hidden">
+                      <AppImage
+                        src={item.img}
+                        alt={`${item.name} Image`}
                         sizes="1"
-                        className="object-cover"
+                        className="w-full h-full overflow-hidden rounded-2xl shadow-xl"
+                        object="object-contain"
                       />
                     </div>
                   </div>

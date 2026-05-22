@@ -95,14 +95,13 @@ export function ThemeProvider({
       />
       <Toaster toastOptions={{ duration: 4000 }} />
       <div
-        className={`relative flex flex-col ${
-          isLoadingBlock && "overflow-hidden h-screen w-screen"
-        }`}
+        className={`relative flex flex-col ${isLoadingBlock && "overflow-hidden h-screen w-screen"
+          }`}
       >
         {/* <LoadingBlock /> */}
         {!isProtected && pathname !== "/" && <SiteHeader />}
         <main className="flex-1">{children}</main>
-        {!isProtected && <SiteFooter />}
+        {!isProtected && <SiteFooter isLanding={pathname === "/"} />}
       </div>
     </ThemeProviderContext.Provider>
   );

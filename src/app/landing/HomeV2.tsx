@@ -14,6 +14,7 @@ import PromotionSection from "@/components/landing/Promotion";
 import { IRegion } from "@/interfaces/IRegion";
 import { useAuth } from "@/lib/auth";
 import { IEventSetting } from "@/interfaces/IEventSetting";
+import { Starfield } from "@/components/landing/Starfield";
 
 interface IProps {
   cities: { label: string; value: string }[];
@@ -83,11 +84,20 @@ export default function HomeV2({
 
       <main>
         <HeroSection user={user} start={start} end={end} now={now} />
-        <AboutSection participanCountData={participanCountData} />
-        <SupportingEventsSection />
+        <div className="bg-gradient-to-b from-brandDark via-black to-brandDark pt-40">
+
+          {/* <div className="bg-white"> */}
+          <Starfield count={200} />
+          <AboutSection participanCountData={participanCountData} />
+          <SupportingEventsSection />
+        </div>
+
         <TimelineSection />
-        <PromotionSection />
-        <ContactSection cities={cities} regions={regions} />
+        <div className="bg-gradient-to-b from-brandDark via-black to-brandDark pt-40">
+          <Starfield count={200} />
+          <PromotionSection />
+          <ContactSection cities={cities} regions={regions} />
+        </div>
       </main>
 
       <div className="fixed bottom-6 right-6 z-50">
