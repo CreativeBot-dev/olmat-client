@@ -6,6 +6,9 @@ import Countdown from "../Countdown";
 import Link from "next/link";
 import { ROUTES } from "@/routes/router";
 import { TUser } from "@/lib/auth";
+import { Planet } from "./Planet";
+import { ShootingStar, Starfield } from "./Starfield";
+import AppTitle from "../ui/AppTittle";
 
 interface IProps {
   user: TUser | null;
@@ -18,17 +21,15 @@ export function HeroSection({ user, start, end, now }: IProps) {
   return (
     <section
       id="hero"
-      className="relative flex justify-center items-center min-h-screen pb-36 pt-20 lg:pt-6 mb-28"
+      className="relative flex justify-center items-center min-h-screen  lg:pt-6  bg-gradient-to-b from-brandDark via-black to-brandDark"
     >
-      <Image src={"/bg.webp"} fill alt="" className="object-cover opacity-20" />
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        style={{ scale: 1.5 }}
-        transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3 }}
-        className=" hidden md:block md:text-8xl font-black text-white/60 absolute bottom-28  uppercase"
-      >
-        <p>Olimpiade Matematika</p>
-      </motion.div>
+      <Starfield count={240} className="z-0" />
+      <Planet className="left-[6%] top-[28%] animate-float-slow hidden md:block" size={70} color="linear-gradient(135deg,#88A5E0,#3A60A0)" glow="#3A60A0" />
+      <Planet className="right-[8%] top-[22%] animate-float-medium hidden md:block" size={120} color="linear-gradient(135deg,#D8CE73,#4D4177)" ring glow="#D8CE73" />
+      <Planet className="right-[18%] bottom-[10%] animate-float-slow hidden lg:block" size={50} color="linear-gradient(135deg,#4D4177,#0B1838)" glow="#88A5E0" />
+      <ShootingStar top="30%" delay={0} />
+      <ShootingStar top="55%" delay={2} />
+
       <div className=" container mx-auto px-6 relative z-10 min-h-screen md:min-h-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -38,11 +39,17 @@ export function HeroSection({ user, start, end, now }: IProps) {
             className="text-center lg:text-left"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-brand">{APPCONSTANT.name}</span>
+              <AppTitle>
+                {APPCONSTANT.name}
+              </AppTitle>
+
               <br />
-              <span className="text-secondBrand">{APPCONSTANT.year}</span>
+
+              <span className="bg-gradient-to-b from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent">
+                {APPCONSTANT.year}
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0 italic">
+            <p className="text-lg md:text-xl text-white mb-8 max-w-xl mx-auto lg:mx-0 italic">
               {APPCONSTANT.theme}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full items-center ">
@@ -51,7 +58,7 @@ export function HeroSection({ user, start, end, now }: IProps) {
                   href={
                     user ? ROUTES.DASHBOARD.REGISTER_PARTICIPANTS : ROUTES.LOGIN
                   }
-                  className="bg-brand hover:bg-brand/90 rounded-lg flex py-2 px-3 items-center text-white w-fit"
+                  className="bg-brandLight hover:bg-brangLowLight duration-300 rounded-lg flex py-2 px-3 items-center text-brandDark font-bold w-fit"
                 >
                   Daftar Sekarang <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -88,29 +95,18 @@ export function HeroSection({ user, start, end, now }: IProps) {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Number.POSITIVE_INFINITY, duration: 4 }}
-              className="absolute -bottom-5 -left-5 h-16 w-16 bg-[#d2b48c] rounded-full flex items-center justify-center shadow-lg"
+              className="absolute -bottom-5 -left-5 h-16 w-16 bg-brand rounded-full flex items-center justify-center shadow-lg"
             >
               <span className="text-white font-bold">UINSA</span>
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Scroll Down Indicator */}
       </div>
 
-      {/* <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-      >
-        <ChevronsDown className=" w-6 text-brand" />
-        <ChevronsDown className=" w-6 text-black" />
-        <ChevronsDown className=" w-6 text-brand" />
-      </motion.div> */}
+
       <div className="absolute w-full z-10 -bottom-20 md:-bottom-3 flex justify-center ">
         <Countdown now={now} start={start} end={end} />
       </div>
-      <div className="absolute w-full bg-gradient-to-t from-white to-white/0 h-32 bottom-0 "></div>
     </section>
   );
 }

@@ -18,9 +18,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        brand: "#996515",
-        secondBrand: "#665D1E",
-        brandDark: "#edc9af",
+        brand: "#4154A0",
+        secondBrand: "#7084D9",
+        brandDark: "#121b3d",
+        brandLight: "#D8CE73",
+        brangLowLight: '#F5F1AD',
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
