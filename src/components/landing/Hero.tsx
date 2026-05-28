@@ -21,12 +21,28 @@ export function HeroSection({ user, start, end, now }: IProps) {
   return (
     <section
       id="hero"
-      className="relative flex justify-center items-center min-h-screen  lg:pt-6  bg-gradient-to-b from-brandDark via-black to-brandDark"
+      className="relative flex justify-center items-center min-h-screen pb-20 pt-40 lg:pt-10  bg-gradient-to-b from-brandDark via-black to-brandDark"
     >
       <Starfield count={240} className="z-0" />
-      <Planet className="left-[6%] top-[28%] animate-float-slow hidden md:block" size={70} color="linear-gradient(135deg,#88A5E0,#3A60A0)" glow="#3A60A0" />
-      <Planet className="right-[8%] top-[22%] animate-float-medium hidden md:block" size={120} color="linear-gradient(135deg,#D8CE73,#4D4177)" ring glow="#D8CE73" />
-      <Planet className="right-[18%] bottom-[10%] animate-float-slow hidden lg:block" size={50} color="linear-gradient(135deg,#4D4177,#0B1838)" glow="#88A5E0" />
+      <Planet
+        className="left-[6%] top-[28%] animate-float-slow hidden md:block"
+        size={70}
+        color="linear-gradient(135deg,#88A5E0,#3A60A0)"
+        glow="#3A60A0"
+      />
+      <Planet
+        className="right-[8%] top-[22%] animate-float-medium hidden md:block"
+        size={120}
+        color="linear-gradient(135deg,#D8CE73,#4D4177)"
+        ring
+        glow="#D8CE73"
+      />
+      <Planet
+        className="right-[18%] bottom-[10%] animate-float-slow hidden lg:block"
+        size={50}
+        color="linear-gradient(135deg,#4D4177,#0B1838)"
+        glow="#88A5E0"
+      />
       <ShootingStar top="30%" delay={0} />
       <ShootingStar top="55%" delay={2} />
 
@@ -39,9 +55,7 @@ export function HeroSection({ user, start, end, now }: IProps) {
             className="text-center lg:text-left"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <AppTitle>
-                {APPCONSTANT.name}
-              </AppTitle>
+              <AppTitle>{APPCONSTANT.name}</AppTitle>
 
               <br />
 
@@ -102,7 +116,6 @@ export function HeroSection({ user, start, end, now }: IProps) {
           </motion.div>
         </div>
       </div>
-
 
       <div className="absolute w-full z-10 -bottom-20 md:-bottom-3 flex justify-center ">
         <Countdown now={now} start={start} end={end} />
