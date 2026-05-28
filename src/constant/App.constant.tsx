@@ -1,8 +1,8 @@
-import { Facebook, Instagram, ThumbsUp } from "lucide-react";
+import { ThumbsUp } from "lucide-react";
 import { SiShopee } from "react-icons/si";
 import { PiTiktokLogo } from "react-icons/pi";
 import { TbBrandShopee } from "react-icons/tb";
-import { FaInstagram } from "react-icons/fa6";
+import { FaFacebook, FaInstagram } from "react-icons/fa6";
 // FaTiktok
 
 export const APPCONSTANT = {
@@ -188,10 +188,6 @@ export const APPCONSTANT = {
       img: "/comingSoon.png",
       desc: "Bukan hanya otak, tapi juga kerjasama tim yang diuji! Turnamen Mobile Legends hadir untuk kamu yang ingin menunjukkan strategi dan kekompakan dalam dunia e-sports. Siapkan tim terbaikmu dan rebut gelar juara dalam pertandingan yang seru dan kompetitif!",
       options: [
-        // {
-        //   label: "Peserta",
-        //   value: "SD/MI, SMP/MTs, SMA/MA/SMK",
-        // },
         {
           label: "Wilayah",
           value: "Surabaya dan sekitarnya",
@@ -247,7 +243,7 @@ export const APPCONSTANT = {
     socialMedia: [
       {
         name: "Instagram",
-        icon: <Instagram />,
+        icon: <FaInstagram />,
         link: "#",
       },
       {
@@ -257,7 +253,7 @@ export const APPCONSTANT = {
       },
       {
         name: "Facebook",
-        icon: <Facebook />,
+        icon: <FaFacebook />,
         link: "#",
       },
     ],
