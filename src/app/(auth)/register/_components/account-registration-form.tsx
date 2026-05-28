@@ -220,7 +220,7 @@ export function AccountRegistrationForm(props: IProps) {
           }
           if (err.email && err.phone) {
             setServerErrors(
-              "Yahh... Sayangnya Email dan No Whatsapp telah terdaftar"
+              "Yahh... Sayangnya Email dan No Whatsapp telah terdaftar",
             );
           }
         }
