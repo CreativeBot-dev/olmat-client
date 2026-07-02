@@ -22,6 +22,7 @@ import { UpperCaseFirst } from "@/helper/common";
 import { useLayout } from "@/hooks/zustand/layout";
 import { Alert, AlertDescription } from "../ui/alert";
 import { APPCONSTANT } from "@/constant/App.constant";
+import AppTitle from "../ui/AppTittle";
 
 type CityFormValues = z.infer<typeof regionSchema>;
 
@@ -63,25 +64,21 @@ export function ContactSection({ cities, regions }: IPops) {
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white to-[#f8f4e3]/30" />
-        <div className="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-brandDark/10 blur-3xl" />
-        <div className="absolute bottom-40 left-[15%] w-72 h-72 rounded-full bg-[#d2b48c]/10 blur-3xl" />
-      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand to-[#d2b48c]">
+            <AppTitle>
               Hubungi Kami
-            </span>
+            </AppTitle>
           </h2>
-          <div className="w-20 h-1 bg-brand mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-brandLight mx-auto mb-6"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Hubungi koordinator rayon di wilayahmu atau kirim pesan langsung
-            kepada panitia pusat untuk mendapatkan informasi seputar Olimpiade
-            Matematika UINSA 2025.
+            <AppTitle>
+              Hubungi koordinator rayon di wilayahmu atau kirim pesan langsung
+              kepada panitia pusat untuk mendapatkan informasi seputar Olimpiade
+              Matematika UINSA 2025.
+            </AppTitle>
           </p>
         </div>
 
@@ -89,8 +86,10 @@ export function ContactSection({ cities, regions }: IPops) {
           {/* Contact Form */}
           <div>
             <div className="">
-              <h3 className="text-2xl font-bold text-secondBrand">
-                Cek Rayon kamu{" "}
+              <h3 className="text-2xl font-bold pb-2">
+                <AppTitle>
+                  Cek Rayon kamu{" "}
+                </AppTitle>
               </h3>
               {/* <p className="text-sm text-foreground">
                 Coba masukkan nama kota kamu untuk mengetahui kamu termasuk
@@ -102,14 +101,18 @@ export function ContactSection({ cities, regions }: IPops) {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-xl shadow-md flex flex-col gap-4"
+              className="glass p-8 rounded-xl shadow-md flex flex-col gap-4"
             >
               {activeRegion.name && (
                 <div className="w-full text-center flex-col flex gap-2">
-                  <p className="text-sm">Kota kamu termasuk</p>
-                  <div className="text-center bg-green-100 w-full rounded-lg drop-shadow-sm">
-                    <p className="text-lg">{activeRegion.name}</p>
-                  </div>
+                  <p className=" text-yellow-400">Kota kamu termasuk</p>
+                  {/* <div className="text-center bg-green-100 w-full rounded-lg drop-shadow-sm"> */}
+                  <p className="text-xl font-bold">
+                    <AppTitle>
+                      {activeRegion.name}
+                    </AppTitle>
+                  </p>
+                  {/* </div> */}
                 </div>
               )}
               <Form {...form}>
@@ -154,7 +157,7 @@ export function ContactSection({ cities, regions }: IPops) {
                 </form>
               </Form>
               <div className="">
-                <p className="text-xs ">
+                <p className="text-xs text-white">
                   Jika kota kamu tidak tersedia, kamu bisa hubungi panitia
                   berikut ya{" "}
                   <Link className="font-bold" href={""}>
@@ -163,26 +166,26 @@ export function ContactSection({ cities, regions }: IPops) {
                 </p>
               </div>
             </motion.div>
-            <div className="mt-8 bg-brand/10 p-6 rounded-xl hidden lg:block">
-              <h4 className="text-lg font-bold mb-2 flex items-center gap-2">
-                <Mail className="h-5 w-5 text-brand" />
+            <div className="mt-8 glass-strong p-6 rounded-xl hidden lg:block">
+              <h4 className="text-lg font-bold mb-2 flex items-center gap-2  text-brandLight">
+                <Mail className="h-5 w-5" />
                 Kontak Utama
               </h4>
-              <p className="text-gray-700 mb-2">
+              <p className="text-white mb-2">
                 Untuk Kepentingan umum, silahkan hubungi kontak berikut
               </p>
-              <div className="text-gray-700 grid grid-cols-5">
+              <div className="text-white grid grid-cols-5">
                 <p className="font-bold">Email</p>
                 <p className="col-span-4">{APPCONSTANT.footer.email}</p>
               </div>
-              <div className="text-gray-700 grid grid-cols-5">
+              <div className="text-white grid grid-cols-5">
                 <p className="font-bold">WhatsApp</p>
                 <p className="col-span-4">
                   <span className="font-bold">Adam </span>
                   {APPCONSTANT.footer.mainWhatsApp.replace("62", "0")}
                 </p>
               </div>
-              <div className="text-gray-700 grid grid-cols-5">
+              <div className="text-white grid grid-cols-5">
                 <p className="font-bold">Alamat</p>
 
                 <p className="col-span-4">
@@ -200,28 +203,31 @@ export function ContactSection({ cities, regions }: IPops) {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-secondBrand">
-              Koordinator Rayon
+            <h3 className="text-2xl font-bold mb-6">
+              <AppTitle>
+                Koordinator Rayon
+              </AppTitle>
             </h3>
-            <p className="text-gray-600 mb-6 text-sm md:text-base">
+            <p className="text-white mb-6 text-sm md:text-base">
               Hubungi koordinator sesuai wilayahmu untuk info lengkap seputar
               OLMAT UINSA 2025.
             </p>
 
             {regions.length > 0 && (
               <Tabs
+
                 defaultValue={activeRegion.id}
                 value={activeRegion.id}
                 onValueChange={(e) =>
                   setActiveRegion({ ...activeRegion, id: e })
                 }
               >
-                <TabsList className="grid grid-cols-2 md:grid-cols-3  mb-6 h-auto flex-wrap">
+                <TabsList className="grid grid-cols-2 md:grid-cols-3  mb-6 h-auto flex-wrap glass-strong gap-2 text-white">
                   {regions.map((region) => (
                     <TabsTrigger
                       key={region.id}
                       value={region.id}
-                      className="data-[state=active]:bg-brand data-[state=active]:text-white"
+                      className="data-[state=active]:bg-brandLight data-[state=active]:text-black"
                     >
                       {region.name}
                     </TabsTrigger>
@@ -230,8 +236,12 @@ export function ContactSection({ cities, regions }: IPops) {
 
                 {regions.map((region) => (
                   <TabsContent key={region.id} value={region.id}>
-                    <div className="bg-white p-6 rounded-xl shadow-md">
-                      <h4 className="text-xl font-bold mb-2">{region.name}</h4>
+                    <div className="glass p-6 rounded-xl shadow-md">
+                      <h4 className="text-xl font-bold mb-2">
+                        <AppTitle>
+                          {region.name}
+                        </AppTitle>
+                      </h4>
                       <div className="text-xs flex gap-2 flex-wrap w-full">
                         {region.cities?.map((city, i) => (
                           <p
@@ -247,10 +257,10 @@ export function ContactSection({ cities, regions }: IPops) {
                           <Link
                             href={`https://api.whatsapp.com/send?phone=${region.contact}&text=Hai%20kak%20saya%20dari%20rayon%20${region.name}`}
                             target="_blank"
-                            className="flex items-center gap-3 w-fit hover:scale-105 duration-300 hover:bg-slate-100 rounded-full pr-3"
+                            className="flex items-center gap-3 bg-brandLight w-fit hover:scale-105 duration-300 hover:bg-slate-100 rounded-full pr-3"
                           >
                             <div className="p-2 rounded-full bg-brand/10 flex items-center justify-center">
-                              <FaWhatsapp className="text-xl text-brand" />
+                              <FaWhatsapp className="text-xl hover:text-brand" />
                             </div>
                             <span>
                               {region.captain} :{" "}

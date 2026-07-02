@@ -55,9 +55,26 @@ export function OtpForm({ length = 6 }: OTPVerificationProps) {
   async function handleResend() {
     setCanResend(false);
     setTimeLeft(60);
-    const res = await resendOtpAction(authData?.hash);
+    setOtp(Array(length).fill(""));
+    setErrMsg(undefined);
+
+    const res = await resendOtpAction(authData.hash);
+
     if (res.data) {
-      setCookie("CBO_Auth", { data: res.data.data, email: authData.email });
+      const newHash = res.data.data;
+
+      setAuthData({
+        hash: newHash,
+        email: authData.email,
+      });
+
+      setCookie(
+        "CBO_Auth",
+        JSON.stringify({
+          data: newHash,
+          email: authData.email,
+        }),
+      );
     }
 
     if (res.error) {
@@ -110,7 +127,7 @@ export function OtpForm({ length = 6 }: OTPVerificationProps) {
   // Handle input change
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    index: number
+    index: number,
   ) => {
     const value = e.target.value;
 
@@ -137,7 +154,7 @@ export function OtpForm({ length = 6 }: OTPVerificationProps) {
   // Handle key down events
   const handleKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement>,
-    index: number
+    index: number,
   ) => {
     // Move to previous input on backspace if current input is empty
     if (e.key === "Backspace" && !otp[index] && index > 0) {

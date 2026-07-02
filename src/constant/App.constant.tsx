@@ -188,10 +188,6 @@ export const APPCONSTANT = {
       img: "/comingSoon.png",
       desc: "Bukan hanya otak, tapi juga kerjasama tim yang diuji! Turnamen Mobile Legends hadir untuk kamu yang ingin menunjukkan strategi dan kekompakan dalam dunia e-sports. Siapkan tim terbaikmu dan rebut gelar juara dalam pertandingan yang seru dan kompetitif!",
       options: [
-        // {
-        //   label: "Peserta",
-        //   value: "SD/MI, SMP/MTs, SMA/MA/SMK",
-        // },
         {
           label: "Wilayah",
           value: "Surabaya dan sekitarnya",
@@ -248,6 +244,7 @@ export const APPCONSTANT = {
       {
         name: "Instagram",
         icon: <PiInstagramLogo />,
+
         link: "#",
       },
       {

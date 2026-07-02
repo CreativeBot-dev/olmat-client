@@ -5,9 +5,13 @@ import { APPCONSTANT } from "@/constant/App.constant";
 import { FaWhatsapp } from "react-icons/fa6";
 import { SlLocationPin } from "react-icons/sl";
 
-export function SiteFooter() {
+interface IProps {
+  isLanding: boolean
+}
+
+export function SiteFooter({ isLanding }: IProps) {
   return (
-    <footer className="border-t bg-white">
+    <footer className={` ${isLanding ? "bg-brandDark text-white" : "bg-white border-t"} `}>
       <div className="container px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="md:col-span-2 flex flex-col md:flex-row gap-5 items-start">
@@ -22,7 +26,7 @@ export function SiteFooter() {
             </div>
             <div>
               <h3 className="font-bold mb-2">{APPCONSTANT.fullName}</h3>
-              <p className="text-sm text-gray-600 italic">
+              <p className="text-sm  italic">
                 {APPCONSTANT.theme}
               </p>
             </div>
@@ -36,9 +40,9 @@ export function SiteFooter() {
                   <Link
                     key={i}
                     href={item.link}
-                    className="text-gray-600 hover:text-gray-900 hover:scale-110 duration-300"
+                    className=" hover:scale-110 duration-300"
                   >
-                    <p className="w-4 h-4 text-2xl text-black">{item.icon}</p>
+                    <p className="w-4 h-4 text-2xl text-brandLight">{item.icon}</p>
                   </Link>
                 ))}
               </div>
@@ -46,9 +50,9 @@ export function SiteFooter() {
             <div className="mt-5">
               <Link
                 href={APPCONSTANT.footer.shopee.link}
-                className="text-gray-600 hover:text-gray-900 hover:scale-110 duration-300"
+                className=" hover:text-gray-900 hover:scale-110 duration-300"
               >
-                <p className="w-4 h-4 text-2xl text-black">
+                <p className="w-4 h-4 text-2xl text-brandLight">
                   {APPCONSTANT.footer.shopee.icon}
                 </p>
               </Link>
@@ -56,15 +60,15 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="font-bold mb-4">Kontak</h3>
-            <address className="not-italic text-sm text-gray-600 space-y-2">
+            <address className="not-italic text-sm  space-y-2">
               <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 text-yellow-400" />
                 <Link href={`mailto:${APPCONSTANT.footer.email}`}>
                   {APPCONSTANT.footer.email}
                 </Link>
               </p>
               <p className="flex items-center gap-2">
-                <FaWhatsapp className="w-4 h-4" />
+                <FaWhatsapp className="w-4 h-4 text-yellow-400" />
                 <Link
                   href={`https://api.whatsapp.com/send?phone=${APPCONSTANT.footer.mainWhatsApp.replace(
                     "+",
@@ -77,7 +81,7 @@ export function SiteFooter() {
                 </Link>
               </p>
               <p className="flex items-start gap-2">
-                <SlLocationPin className="text-2xl" />
+                <SlLocationPin className="text-2xl text-yellow-400" />
                 <Link
                   href={"https://maps.app.goo.gl/YuQGXHFWA4WiETSf7"}
                   target="_blank"
@@ -91,7 +95,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t text-center text-sm text-gray-600">
+        <div className="mt-8 pt-8 border-t text-center text-sm ">
           <p className="flex flex-wrap items-center gap-1 justify-center">
             © 2025 OLMAT UINSA created by{" "}
             <Link
@@ -119,7 +123,7 @@ export function SiteFooter() {
 }
 
 {
-  /* <div className="mt-8 pt-8 border-t text-center text-sm text-gray-600 flex justify-center w-full items-center">
+  /* <div className="mt-8 pt-8 border-t text-center text-sm  flex justify-center w-full items-center">
   <p className="flex flex-wrap items-center gap-1">
     © 2025 OLMAT UINSA created by{" "}
     <Link
