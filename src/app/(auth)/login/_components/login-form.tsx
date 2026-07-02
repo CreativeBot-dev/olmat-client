@@ -57,13 +57,13 @@ export function LoginForm() {
 
   return (
     <Card>
-      <CardHeader className="">
+      {/* <CardHeader className="">
         <div className="bg-slate-100 p-3 rounded-lg">
           <p className="uppercase font-bold text-center">Akun demo</p>
           <p>email : user@user.com</p>
           <div>password : qweqweqwe</div>
         </div>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent className="pt-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
