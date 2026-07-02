@@ -1,6 +1,6 @@
-import { Facebook, Instagram, ThumbsUp } from "lucide-react";
+import { ThumbsUp } from "lucide-react";
 import { SiShopee } from "react-icons/si";
-import { PiTiktokLogo } from "react-icons/pi";
+import { PiFacebookLogo, PiInstagramLogo, PiTiktokLogo } from "react-icons/pi";
 import { TbBrandShopee } from "react-icons/tb";
 import { FaInstagram } from "react-icons/fa6";
 // FaTiktok
@@ -247,7 +247,7 @@ export const APPCONSTANT = {
     socialMedia: [
       {
         name: "Instagram",
-        icon: <Instagram />,
+        icon: <PiInstagramLogo />,
         link: "#",
       },
       {
@@ -257,7 +257,7 @@ export const APPCONSTANT = {
       },
       {
         name: "Facebook",
-        icon: <Facebook />,
+        icon: <PiFacebookLogo />,
         link: "#",
       },
     ],
