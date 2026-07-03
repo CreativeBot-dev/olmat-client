@@ -154,7 +154,7 @@ export function SchoolRegistrationForm({ provinces, degrees }: IProps) {
       const res = await submitSchoolRegistrationAction(data);
 
       if (res.success) {
-        setIsSuccess(true, "Pendaftaran Sekolah Terkirim");
+        setIsSuccess(true, "Permintaan Pendaftaran Sekolah Telah Terkirim");
         form.reset();
 
         setTimeout(() => {
