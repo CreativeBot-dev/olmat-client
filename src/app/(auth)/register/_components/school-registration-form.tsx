@@ -148,18 +148,52 @@ export function SchoolRegistrationForm({ provinces, degrees }: IProps) {
   }, [selectedCity]);
 
   async function onSubmit(data: SchoolFormValues) {
-    setIsLoading(true);
-    const res = await submitSchoolRegistrationAction(data);
-    if (res.success) {
-      setIsSuccess(true, "Pendaftaran Sekolah Terkirim");
-      form.reset();
-      router.push(ROUTES.REGISTER + "?sec=account");
-      window.location.reload();
+    try {
+      setIsLoading(true);
+
+      const res = await submitSchoolRegistrationAction(data);
+
+      if (res.success) {
+        setIsSuccess(true, "Pendaftaran Sekolah Terkirim");
+        form.reset();
+
+        setTimeout(() => {
+          router.push(ROUTES.REGISTER + "?sec=account");
+        }, 1500);
+
+        return;
+      } else {
+        const err = res.error;
+        if (err) {
+          if (err.phone) {
+            setError(true, "Yah... Sayangnya No Whatsapp telah terdaftar");
+            form.setError("phone", {
+              type: "server",
+              message: "No Telepon telah terdaftar",
+            });
+          }
+          if (err.whatsapp) {
+            setError(true, "Yah... Sayangnya No Whatsapp telah terdaftar");
+            form.setError("whatsapp", {
+              type: "server",
+              message: "whatsapp telah terdaftar",
+            });
+          }
+          if (err.email) {
+            setError(true, "Yah... Sayangnya Email telah terdaftar");
+            form.setError("email", {
+              type: "server",
+              message: "Email telah terdaftar",
+            });
+          } else {
+            setError(true, "Terjadi kesalahan saat pendaftaran sekolah");
+          }
+        }
+      }
+    } catch (error) {
+      setError(true, "Terjadi kesalahan saat pendaftaran sekolah");
+    } finally {
       setIsLoading(false);
-    } else {
-      setError(true, "Pendaftaran Sekolah Tidak Terkirim");
-      setIsLoading(false);
-      throw res.error;
     }
   }
 

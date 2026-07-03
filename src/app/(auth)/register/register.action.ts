@@ -111,11 +111,11 @@ export async function getRegionByCityAction(cityId: string): Promise<{
 }
 
 export async function submitSchoolRegistrationAction(
-  data: z.infer<typeof schoolSchema>
+  data: z.infer<typeof schoolSchema>,
 ): Promise<{
   success: boolean;
   data: any;
-  error: AxiosError | null | any;
+  error: any;
 }> {
   const validationResult = schoolSchema.safeParse(data);
 
@@ -123,21 +123,34 @@ export async function submitSchoolRegistrationAction(
     return {
       success: false,
       data: null,
-      error: validationResult.error.flatten().fieldErrors,
+      error: {
+        message: "Validasi gagal",
+        fields: validationResult.error.flatten().fieldErrors,
+      },
     };
   }
 
   try {
     const res = await api.post("/school", data);
-    return { success: true, data: res.data, error: null };
+
+    return {
+      success: true,
+      data: res.data,
+      error: null,
+    };
   } catch (error) {
-    const err = error as AxiosError;
-    return { success: false, data: null, error: err };
+    const err = error as AxiosError<any>;
+
+    return {
+      success: false,
+      data: null,
+      error: err.response?.data.errors,
+    };
   }
 }
 
 export async function submitAccountRegistrationAction(
-  data: z.infer<typeof accountSchema>
+  data: z.infer<typeof accountSchema>,
 ) {
   const validationResult = accountSchema.safeParse(data);
 
