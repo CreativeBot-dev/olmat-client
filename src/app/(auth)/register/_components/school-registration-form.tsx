@@ -191,6 +191,7 @@ export function SchoolRegistrationForm({ provinces, degrees }: IProps) {
         }
       }
     } catch (error) {
+      console.error("Error submitting school registration:", error);
       setError(true, "Terjadi kesalahan saat pendaftaran sekolah");
     } finally {
       setIsLoading(false);
