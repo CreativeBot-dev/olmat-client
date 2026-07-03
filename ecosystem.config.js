@@ -7,11 +7,12 @@ module.exports = {
       cwd: "/root/olmat/olmat-client",
       instances: 1,
       autorestart: true,
+      exec_mode: "cluster",
       watch: false,
       max_memory_restart: "700M",
       env: {
         NODE_ENV: "production",
-        PORT: 5000,
+        PORT: 3001,
       },
     },
   ],
