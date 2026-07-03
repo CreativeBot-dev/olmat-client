@@ -18,14 +18,10 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             export NVM_DIR=~/.nvm
-            export PATH="$HOME/.node-V20.19/bin:$PATH"
-            # corepack enable
-            cd mine/olmat/olmat-client
+            cd olmat/olmat-client
             git reset --hard
             git pull
             yarn install
             yarn build
-            docker compose up -d --build olmat-client
-            docker ps -a
-            docker system prune -a -f
-            df -h
+            pm2 stop ecosystem.config.js 
+            pm2 start ecosystem.config.js
