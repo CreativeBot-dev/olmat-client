@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { ContactForm } from "./_components/contact-form";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export const metadata: Metadata = {
-  title: "Contact - Math Olympiad 2025",
-  description: "Contact the International Mathematics Olympiad 2025 team",
+  title: `Contact - Math Olympiad ${APPCONSTANT.year}`,
+  description: `Contact the International Mathematics Olympiad ${APPCONSTANT.year} team`,
 };
 
 export default function ContactPage() {
@@ -21,11 +22,13 @@ export default function ContactPage() {
           <div className="space-y-4">
             <div>
               <h3 className="text-lg font-semibold">Email</h3>
-              <p className="text-gray-600">info@matholympiad2025.com</p>
+              <p className="text-gray-600">{APPCONSTANT.footer.email}</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold">Phone</h3>
-              <p className="text-gray-600">+1 234 567 890</p>
+              <p className="text-gray-600">
+                {APPCONSTANT.footer.registerWhatsApp}
+              </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold">Address</h3>

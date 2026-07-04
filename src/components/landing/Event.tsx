@@ -33,18 +33,15 @@ export function SupportingEventsSection() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <AppTitle>
-              Acara Pendukung
-            </AppTitle>
+            <AppTitle>Acara Pendukung</AppTitle>
           </h2>
           <div className="w-20 h-1 bg-brandLight mx-auto mb-6"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             <AppTitle>
-              Selain kompetisi utama, OLMAT UINSA menghadirkan beragam acara seru
-              yang menambah wawasan dan semangat kebersamaan. Jangan lewatkan
-              keseruannya!
+              Selain kompetisi utama, OLMAT UINSA menghadirkan beragam acara
+              seru yang menambah wawasan dan semangat kebersamaan. Jangan
+              lewatkan keseruannya!
             </AppTitle>
-
           </p>
         </div>
 
@@ -53,15 +50,12 @@ export function SupportingEventsSection() {
           className="w-full"
         >
           <div className="flex justify-center mb-8">
-            <TabsList
-              className="grid w-full max-w-md h-full items-center justify-center
-             grid-cols-1 md:grid-cols-3 gap-2 glass-strong"
-            >
+            <TabsList className="flex flex-col md:flex-row w-fit max-w-4xl gap-2 glass-strong h-fit">
               {APPCONSTANT.supportEvent.map((item, i) => (
                 <TabsTrigger
                   key={i}
                   value={item.name}
-                  className="data-[state=active]:bg-brandLight data-[state=active]:text-black text-white"
+                  className="flex-1 data-[state=active]:bg-brandLight data-[state=active]:text-black text-white"
                 >
                   {item.name}
                 </TabsTrigger>
@@ -70,7 +64,11 @@ export function SupportingEventsSection() {
           </div>
 
           {APPCONSTANT.supportEvent.map((item, i) => (
-            <TabsContent value={item.name} key={i} className="glass p-10 rounded-3xl">
+            <TabsContent
+              value={item.name}
+              key={i}
+              className="glass p-10 rounded-3xl"
+            >
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -84,7 +82,6 @@ export function SupportingEventsSection() {
                   className="order-2 lg:order-1"
                 >
                   <div className="space-y-6">
-
                     <AppTitle className="font-bold text-3xl">
                       {item.name}
                     </AppTitle>
@@ -97,9 +94,7 @@ export function SupportingEventsSection() {
                           </div>
                           <div className="w-full">
                             <p className="font-medium">
-                              <AppTitle>
-                                {opt.label}
-                              </AppTitle>
+                              <AppTitle>{opt.label}</AppTitle>
                             </p>
                             <p className="text-white">{opt.value}</p>
                           </div>

@@ -13,9 +13,10 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Download, Clock, QrCode, AlertCircle } from "lucide-react";
 import { PaymentCountdown } from "@/components/payment-countdown";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export const metadata: Metadata = {
-  title: "Payment Details - Math Olympiad 2025",
+  title: `Payment Details - Math Olympiad ${APPCONSTANT.year}`,
   description: "Complete your payment for the Math Olympiad",
 };
 
@@ -132,7 +133,7 @@ export default function PaymentPage({ params }: PaymentPageProps) {
                     <span>
                       Rp{" "}
                       {payment.details.pricePerParticipant.toLocaleString(
-                        "id-ID"
+                        "id-ID",
                       )}
                     </span>
                   </div>

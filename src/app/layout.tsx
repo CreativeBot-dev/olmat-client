@@ -7,7 +7,7 @@ import { AuthProvider } from "@/lib/auth";
 export const metadata = {
   title: "OLMAT UINSA – Olimpiade Matematika Nasional UIN Sunan Ampel Surabaya",
   description:
-    "Ikuti OLMAT UINSA 2025 – Olimpiade Matematika Nasional dari UIN Sunan Ampel Surabaya. Daftar online, cek jadwal, dan raih prestasi terbaikmu!",
+    "Ikuti OLMAT UINSA – Olimpiade Matematika Nasional dari UIN Sunan Ampel Surabaya. Daftar online, cek jadwal, dan raih prestasi terbaikmu!",
 };
 
 export default function RootLayout({

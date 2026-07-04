@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Trophy, Award, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto space-y-6">
             <h1 className="text-3xl font-bold tracking-tighter md:text-5xl">
-              International Mathematics Olympiad 2025
+              International Mathematics Olympiad {APPCONSTANT.year}
             </h1>
             <p className="text-gray-600 md:text-lg">
               Join the world&apos;s most prestigious mathematics competition and
@@ -118,7 +119,7 @@ export default function Home() {
             </h2>
             <p>
               Register now and be part of the International Mathematics Olympiad
-              2025
+              {APPCONSTANT.year}
             </p>
             <Button
               asChild

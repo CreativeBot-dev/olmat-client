@@ -4,7 +4,7 @@ import ParticipantDetailClient from "../_components/ParticipantDetailClient";
 import BackButton from "@/components/ui/BackButton";
 
 export const metadata: Metadata = {
-  title: "Participant Details - Math Olympiad 2025",
+  title: "Participant Details - Math Olympiad UINSA",
   description: "View participant details",
 };
 
@@ -14,6 +14,7 @@ export default async function ParticipantPageDetail({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  console.log("id", id);
   const res = await getParticipantIdAction(id);
 
   return (

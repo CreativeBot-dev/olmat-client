@@ -8,9 +8,9 @@ import { InfoIcon } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export const metadata: Metadata = {
-  title: "Register Participants - Math Olympiad 2025",
+  title: `Register Participants - Math Olympiad ${APPCONSTANT.year}`,
   description:
-    "Register participants for the International Mathematics Olympiad 2025",
+    "Register participants for the International Mathematics Olympiad",
 };
 
 export default async function RegisterParticipantsPage() {

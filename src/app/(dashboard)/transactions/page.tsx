@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTransactionAction } from "./transaction.action";
 import TransactionClient from "./_components/TransactionClient";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export const metadata: Metadata = {
-  title: "Transactions - Math Olympiad 2025",
+  title: `Transactions - Math Olympiad ${APPCONSTANT.year}`,
   description: "Manage your Math Olympiad transactions",
 };
 

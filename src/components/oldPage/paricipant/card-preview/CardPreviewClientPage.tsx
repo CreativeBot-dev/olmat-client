@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 // Sample participant data
 const participant = {
@@ -44,7 +45,9 @@ export default function CardPreviewClientPage() {
               {/* Header */}
               <div className="mb-4 text-center">
                 <h2 className="text-xl font-bold">INTERNATIONAL MATHEMATICS</h2>
-                <h2 className="text-xl font-bold">OLYMPIAD 2025</h2>
+                <h2 className="text-xl font-bold">
+                  OLYMPIAD {APPCONSTANT.year}
+                </h2>
               </div>
 
               {/* Photo */}

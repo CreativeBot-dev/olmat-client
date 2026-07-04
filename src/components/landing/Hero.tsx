@@ -104,7 +104,9 @@ export function HeroSection({ user, start, end, now }: IProps) {
               transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3 }}
               className="absolute -top-10 -right-5 h-20 w-20 bg-brandDark rounded-full flex items-center justify-center shadow-lg"
             >
-              <span className="text-white font-bold text-xl">2025</span>
+              <span className="text-white font-bold text-xl">
+                {APPCONSTANT.year}
+              </span>
             </motion.div>
             <motion.div
               animate={{ y: [0, 10, 0] }}

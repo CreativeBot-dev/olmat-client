@@ -27,9 +27,11 @@ import {
 } from "@/components/ui/table";
 import { Frown } from "lucide-react";
 import RegenerateQrButton from "../_components/RegenerateQrButton";
+import { PaymentRealtimeListener } from "../_components/payment-listener";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export const metadata: Metadata = {
-  title: "Transaction Details - Math Olympiad 2025",
+  title: `Transaction Details - Math Olympiad ${APPCONSTANT.year}`,
   description: "View transaction details",
 };
 
@@ -60,12 +62,7 @@ export default async function TransactionPage({
       minute: "2-digit",
     });
   }
-  // Gunakan expiredAt dari API
-  // const expiredAt = transaction?.expiredAt
-  //   ? new Date(transaction.expiredAt)
-  //   : undefined;
 
-  // Status sekarang: expired jika pending dan sudah lewat expiredAt
   const statusNow =
     transaction?.status === "pending" &&
     transaction.expiredAt &&
@@ -76,6 +73,10 @@ export default async function TransactionPage({
   if (transaction) {
     return (
       <div className="space-y-6">
+        <PaymentRealtimeListener
+          invoice={transaction.invoice}
+          status={statusNow}
+        />
         <div className="flex items-center gap-4">
           <BackButton />
           <h1 className="text-3xl font-bold tracking-tight">
@@ -95,8 +96,8 @@ export default async function TransactionPage({
                     statusNow === "paid"
                       ? "bg-green-100 text-green-800"
                       : statusNow === "pending"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-red-100 text-red-800"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-red-100 text-red-800"
                   }`}
                 >
                   {statusNow}
@@ -245,7 +246,7 @@ export default async function TransactionPage({
 
                           <TableCell className="text-center">
                             {convertDateServer(
-                              new Date(participant.birth).toISOString()
+                              new Date(participant.birth).toISOString(),
                             )}
                           </TableCell>
                         </TableRow>

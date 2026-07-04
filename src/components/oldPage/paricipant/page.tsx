@@ -1,16 +1,30 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { UserPlus, Search, Filter } from "lucide-react"
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { UserPlus, Search, Filter } from "lucide-react";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export const metadata: Metadata = {
-  title: "Participants - Math Olympiad 2025",
+  title: `Participants - Math Olympiad ${APPCONSTANT.year}`,
   description: "Manage your Math Olympiad participants",
-}
+};
 
 // Mock data for participants
 const participants = [
@@ -41,7 +55,7 @@ const participants = [
     phone: "+62 857 1234 5678",
     status: "Approved",
   },
-]
+];
 
 export default function ParticipantsPage() {
   return (
@@ -93,7 +107,9 @@ export default function ParticipantsPage() {
                 <TableRow>
                   <TableHead>Name</TableHead>
                   <TableHead>Gender</TableHead>
-                  <TableHead className="hidden md:table-cell">Date of Birth</TableHead>
+                  <TableHead className="hidden md:table-cell">
+                    Date of Birth
+                  </TableHead>
                   <TableHead className="hidden md:table-cell">Email</TableHead>
                   <TableHead className="hidden md:table-cell">Phone</TableHead>
                   <TableHead>Status</TableHead>
@@ -103,11 +119,19 @@ export default function ParticipantsPage() {
               <TableBody>
                 {participants.map((participant) => (
                   <TableRow key={participant.id}>
-                    <TableCell className="font-medium">{participant.name}</TableCell>
+                    <TableCell className="font-medium">
+                      {participant.name}
+                    </TableCell>
                     <TableCell>{participant.gender}</TableCell>
-                    <TableCell className="hidden md:table-cell">{participant.dateOfBirth}</TableCell>
-                    <TableCell className="hidden md:table-cell">{participant.email}</TableCell>
-                    <TableCell className="hidden md:table-cell">{participant.phone}</TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {participant.dateOfBirth}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {participant.email}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {participant.phone}
+                    </TableCell>
                     <TableCell>
                       <div
                         className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
@@ -123,7 +147,9 @@ export default function ParticipantsPage() {
                     </TableCell>
                     <TableCell className="text-right">
                       <Button variant="ghost" size="sm" asChild>
-                        <Link href={`/participants/${participant.id}`}>View</Link>
+                        <Link href={`/participants/${participant.id}`}>
+                          View
+                        </Link>
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -134,6 +160,5 @@ export default function ParticipantsPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-

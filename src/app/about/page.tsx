@@ -1,9 +1,10 @@
+import { APPCONSTANT } from "@/constant/App.constant";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "OLMAT UINSA – Olimpiade Matematika Nasional UIN Sunan Ampel Surabaya",
   description:
-    "Ikuti OLMAT UINSA 2025 – Olimpiade Matematika Nasional dari UIN Sunan Ampel Surabaya. Daftar online, cek jadwal, dan raih prestasi terbaikmu!",
+    "Ikuti OLMAT UINSA – Olimpiade Matematika Nasional dari UIN Sunan Ampel Surabaya. Daftar online, cek jadwal, dan raih prestasi terbaikmu!",
 };
 
 export default function AboutPage() {
@@ -15,7 +16,8 @@ export default function AboutPage() {
             About the Math Olympiad
           </h1>
           <p className="text-gray-500 md:text-xl/relaxed">
-            Learn more about the International Mathematics Olympiad 2025
+            Learn more about the International Mathematics Olympiad{" "}
+            {APPCONSTANT.year}
           </p>
         </div>
 

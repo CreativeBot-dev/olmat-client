@@ -15,7 +15,7 @@ import { AccountForm } from "./_components/account-form";
 import { PasswordForm } from "@/app/(dashboard)/account/_components/password-form";
 
 export const metadata: Metadata = {
-  title: "Account - Math Olympiad 2025",
+  title: "Account - Math Olympiad",
   description: "Manage your account settings",
 };
 

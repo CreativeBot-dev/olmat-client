@@ -29,6 +29,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import { ROUTES } from "@/routes/router";
 import Image from "next/image";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export function DashboardSidebar({
   className,
@@ -107,7 +108,7 @@ export function DashboardSidebar({
                   <ChevronDown
                     className={cn(
                       "h-4 w-4 transition-transform duration-200",
-                      participantsOpen ? "rotate-180" : ""
+                      participantsOpen ? "rotate-180" : "",
                     )}
                   />
                 </Button>
@@ -155,7 +156,7 @@ export function DashboardSidebar({
                   <ChevronDown
                     className={cn(
                       "h-4 w-4 transition-transform duration-200",
-                      transactionsOpen ? "rotate-180" : ""
+                      transactionsOpen ? "rotate-180" : "",
                     )}
                   />
                 </Button>
@@ -200,7 +201,7 @@ export function DashboardSidebar({
         </Button>
         <div className="mt-8 text-center text-xs text-gray-600 flex justify-center w-full items-center">
           <p className="flex flex-wrap items-center gap-1 justify-center">
-            © 2025 OLMAT UINSA created by{" "}
+            © {APPCONSTANT.year} OLMAT UINSA created by{" "}
             <Link
               href="https://mcrama.vercel.app/"
               target="_blank"
@@ -252,7 +253,7 @@ export function DashboardSidebar({
     <div
       className={cn(
         "hidden md:flex sticky top-0 h-screen w-64 flex-col border-r bg-background",
-        className
+        className,
       )}
     >
       {/* <ScrollArea className="flex-1">{sidebarContent}</ScrollArea> */}

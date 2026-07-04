@@ -51,8 +51,8 @@ export default function ParticipantDetailClient({ participant }: IProps) {
                     participant.status === "active"
                       ? "bg-green-100 text-green-800"
                       : participant.status === "pending"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-red-100 text-red-800"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-red-100 text-red-800"
                   }`}
                 >
                   {participant.status}
@@ -188,8 +188,8 @@ export default function ParticipantDetailClient({ participant }: IProps) {
                             participant.status === "active"
                               ? "bg-green-100 text-green-800"
                               : participant.status === "pending"
-                              ? "bg-yellow-100 text-yellow-800"
-                              : "bg-red-100 text-red-800"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : "bg-red-100 text-red-800"
                           }`}
                         >
                           {participant.status === "active"

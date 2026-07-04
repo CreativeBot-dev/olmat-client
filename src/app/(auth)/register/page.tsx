@@ -4,7 +4,7 @@ import { getDegreeAction, getProvinceAction } from "./register.action";
 import ClientPageRegis from "./_components/ClientPageRegis";
 
 export const metadata: Metadata = {
-  title: "Register - Olmat UINSA 2025",
+  title: "Register - Olmat UINSA",
   description:
     "Numbers beyond time Reviving the greatness of abbasiyah mathematics in the modern world",
 };

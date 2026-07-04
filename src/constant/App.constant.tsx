@@ -8,8 +8,8 @@ import { FaInstagram } from "react-icons/fa6";
 export const APPCONSTANT = {
   name: "OLMAT UINSA",
   fullName: "Olimpiade Matematika UINSA",
-  year: "2025",
-  theme: `Numbers beyond time “Reviving the greatness of abbasiyah mathematics in the modern world"`,
+  year: "2026",
+  theme: `GALACTIC MINDS: Menaklukkan Semesta dengan Matematika`,
   about: {
     desc: "The UINSA Math Olympiad is Indonesias premier mathematics competition, bringing together the brightest young minds from across the nation.",
     item: [
@@ -106,12 +106,12 @@ export const APPCONSTANT = {
     {
       name: "Seminar Nasional",
       img: "/seminar.webp",
-      desc: "Empowering Young Mathematicians, Fostering Mathematical Literacy, and Building a Strong Foundation for Future Succes.",
+      desc: "Constellation of Genius : Menyatukan Potensi Matematikawan Muda untuk Menerangi Peradaban",
       options: [
         {
           label: "Narasumber",
           value:
-            "Bu Lingga (Content Creator, 2.9 Juta Followers TikTok), Guess Who is Coming",
+            "Papa Zidan (Encep Muhammad Subhan) komika dan konten kreator matematika, dengan parodi mengajar yang menjelaskan rumus - rumus dengan cara cerdas namun penuh kelakar dan absurd.",
         },
         {
           label: "Moderator",
@@ -120,7 +120,7 @@ export const APPCONSTANT = {
         },
         {
           label: "Hari/Tanggal",
-          value: "Sabtu, 18 Oktober 2025",
+          value: "Sabtu, 17 Oktober 2026",
         },
         {
           label: "Waktu",
@@ -128,7 +128,7 @@ export const APPCONSTANT = {
         },
         {
           label: "Tempat",
-          value: "Kampus 1 UIN Sunan Ampel Surabaya",
+          value: "Auditorium UIN Sunan Ampel Surabaya",
         },
         {
           label: "Benefit",
@@ -139,9 +139,9 @@ export const APPCONSTANT = {
         "https://docs.google.com/forms/d/e/1FAIpQLScywD0X3oAE8O7RyFYTPfaQd1OGCGIpaivQ0rbYHwIyyjomMA/viewform",
     },
     {
-      name: "Lomba Pidato",
+      name: "Lomba Tilawah Tartil",
       img: "/eventPidato.webp",
-      desc: "Lomba Pidato Bahasa Inggris OLMAT UINSA 2025 adalah ajang kompetisi tingkat nasional untuk siswa SD hingga SMA sederajat. Tunjukkan kemampuan public speaking dan sampaikan ide cemerlangmu bertema “The Beauty of Mathematics in Everyday Life” untuk memenangkan hadiah menarik, e-sertifikat, dan free pass Seminar Nasional OLMAT 2025!",
+      desc: "Membangun Peradaban Qur’ani Melalui Tilawah Tartil dalam",
       juknis: "/pdf/juknisPidato.pdf",
       options: [
         {
@@ -150,86 +150,82 @@ export const APPCONSTANT = {
         },
         {
           label: "Tema Pidato",
-          value: "The Beauty of Mathematics in Everyday Life",
+          value: "Membangun Peradaban Qur’ani Melalui Tilawah Tartil dalam",
         },
         {
           label: "HTM Gelombang 1",
-          value: "Rp 15.000 (26 Mei – 20 Juni 2025)",
+          value: "Rp 20.000 (13 Juli – 11 Agustus 2026)",
         },
         {
           label: "HTM Gelombang 2",
-          value: "Rp 20.000 (21 Juni – 20 Juli 2025)",
-        },
-        {
-          label: "HTM Gelombang 3",
-          value: "Rp 20.000 (21 Juli – 20 Agustus 2025)",
+          value: "Rp 20.000 (12 Agustus – 10 September 2026)",
         },
         {
           label: "Technical Meeting",
-          value: "23 Agustus 2025 (Wajib ikut)",
+          value: "14 September 2026 (Wajib ikut)",
         },
         {
           label: "Pengumpulan Video",
-          value: "24 Agustus – 20 September 2025",
+          value: "15 September – 30 September 2026",
         },
         {
           label: "Penjurian",
-          value: "21 – 29 September 2025",
+          value: "1 – 10 Oktober 2026",
         },
         {
           label: "Pengumuman Pemenang",
-          value: "30 September 2025",
+          value: "13 Oktober 2026",
         },
       ],
       registerLink: "https://forms.gle/Dgs35ntcs4tmEkHBA",
     },
-    {
-      name: "Mobile Legends",
-      img: "/comingSoon.png",
-      desc: "Bukan hanya otak, tapi juga kerjasama tim yang diuji! Turnamen Mobile Legends hadir untuk kamu yang ingin menunjukkan strategi dan kekompakan dalam dunia e-sports. Siapkan tim terbaikmu dan rebut gelar juara dalam pertandingan yang seru dan kompetitif!",
-      options: [
-        {
-          label: "Wilayah",
-          value: "Surabaya dan sekitarnya",
-        },
-      ],
-      registerLink: "",
-    },
+    // {
+    //   name: "Mobile Legends",
+    //   img: "/comingSoon.png",
+    //   desc: "Bukan hanya otak, tapi juga kerjasama tim yang diuji! Turnamen Mobile Legends hadir untuk kamu yang ingin menunjukkan strategi dan kekompakan dalam dunia e-sports. Siapkan tim terbaikmu dan rebut gelar juara dalam pertandingan yang seru dan kompetitif!",
+    //   options: [
+    //     {
+    //       label: "Wilayah",
+    //       value: "Surabaya dan sekitarnya",
+    //     },
+    //   ],
+    //   registerLink: "",
+    // },
   ],
 
   timelineEvents: [
     {
-      date: "14 Mei 2025",
+      date: "10 Juli 2026",
       title: "Pembukaan Pendaftaran",
       description:
-        "Pendaftaran OLMAT UINSA 2025 resmi dibuka untuk jenjang MI/SD, MTs/SMP, dan MA/SMA/SMK. Proses pendaftaran dilakukan melalui website resmi​",
+        "Pendaftaran OLMAT UINSA 2026 resmi dibuka untuk jenjang MI/SD, MTs/SMP, dan MA/SMA/SMK. Proses pendaftaran dilakukan melalui website resmi​",
     },
     {
-      date: "23 Agustus 2025",
+      date: "22 Agustus 2026",
       title: "Try Out Gratis",
       description:
-        "Pendaftar yang melakukan registrasi antara 14 Mei – 17 Agustus 2025 berhak mengikuti Try Out Gratis pada 23 Agustus 2025.",
+        "Pendaftar yang melakukan registrasi antara 10 Juli – 16 Agustus 2026 berhak mengikuti Try Out Gratis pada 23 Agustus 2026.",
     },
     {
-      date: "6 September 2025",
+      date: "10 September 2026",
       title: "Penutupan Pendaftaran",
       description:
-        "Hari terakhir pendaftaran OLMAT UINSA 2025. Peserta harus sudah melengkapi seluruh proses, mulai dari pengisian formulir, pembayaran, hingga konfirmasi.",
+        "Hari terakhir pendaftaran OLMAT UINSA 2026. Peserta harus sudah melengkapi seluruh proses, mulai dari pengisian formulir, pembayaran, hingga konfirmasi.",
     },
     {
-      date: "20 September 2025",
+      date: "19 September 2026",
       title: "Babak Penyisihan",
       description:
         "Babak pertama olimpiade dilaksanakan online via platform Sibiti dan Zoom Meeting. Peserta terbaik akan dipilih berdasarkan peringkat nasional dan rayon untuk melaju ke babak semifinal​",
     },
     {
-      date: "4 Oktober 2025",
+      date: "3 Oktober 2026",
       title: "Babak Semifinal",
       description:
         "Peserta yang lolos melanjutkan ke semifinal dengan sistem pengawasan ketat (double device). Peringkat 10 terbaik tiap jenjang berhak maju ke babak final",
     },
     {
-      date: "18 Oktober 2025",
+      date: "17 Oktober 2026",
       title: "Babak Final",
       description:
         "Final diadakan secara luring (offline) di Fakultas Tarbiyah dan Keguruan UINSA Surabaya. Tahapan Tes tulis & Presentasi",
@@ -237,8 +233,10 @@ export const APPCONSTANT = {
   ],
 
   footer: {
-    mainWhatsApp: "6289520537559",
-    registerWhatsApp: "6289520537559",
+    mainName: "Romie",
+    mainWhatsApp: "6285604632754",
+    registerName: "Maullid Avriliyanti E.K",
+    registerWhatsApp: "6288228906018",
     email: "olimpiadematematikauinsa@gmail.com",
     socialMedia: [
       {

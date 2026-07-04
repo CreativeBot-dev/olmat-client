@@ -64,20 +64,17 @@ export function ContactSection({ cities, regions }: IPops) {
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <AppTitle>
-              Hubungi Kami
-            </AppTitle>
+            <AppTitle>Hubungi Kami</AppTitle>
           </h2>
           <div className="w-20 h-1 bg-brandLight mx-auto mb-6"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             <AppTitle>
               Hubungi koordinator rayon di wilayahmu atau kirim pesan langsung
               kepada panitia pusat untuk mendapatkan informasi seputar Olimpiade
-              Matematika UINSA 2025.
+              Matematika UINSA {APPCONSTANT.year}.
             </AppTitle>
           </p>
         </div>
@@ -87,9 +84,7 @@ export function ContactSection({ cities, regions }: IPops) {
           <div>
             <div className="">
               <h3 className="text-2xl font-bold pb-2">
-                <AppTitle>
-                  Cek Rayon kamu{" "}
-                </AppTitle>
+                <AppTitle>Cek Rayon kamu </AppTitle>
               </h3>
               {/* <p className="text-sm text-foreground">
                 Coba masukkan nama kota kamu untuk mengetahui kamu termasuk
@@ -108,9 +103,7 @@ export function ContactSection({ cities, regions }: IPops) {
                   <p className=" text-yellow-400">Kota kamu termasuk</p>
                   {/* <div className="text-center bg-green-100 w-full rounded-lg drop-shadow-sm"> */}
                   <p className="text-xl font-bold">
-                    <AppTitle>
-                      {activeRegion.name}
-                    </AppTitle>
+                    <AppTitle>{activeRegion.name}</AppTitle>
                   </p>
                   {/* </div> */}
                 </div>
@@ -181,8 +174,10 @@ export function ContactSection({ cities, regions }: IPops) {
               <div className="text-white grid grid-cols-5">
                 <p className="font-bold">WhatsApp</p>
                 <p className="col-span-4">
-                  <span className="font-bold">Adam </span>
-                  {APPCONSTANT.footer.mainWhatsApp.replace("62", "0")}
+                  <span className="font-bold">
+                    {APPCONSTANT.footer.registerName}{" "}
+                  </span>
+                  {APPCONSTANT.footer.registerWhatsApp.replace("62", "0")}
                 </p>
               </div>
               <div className="text-white grid grid-cols-5">
@@ -204,18 +199,15 @@ export function ContactSection({ cities, regions }: IPops) {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold mb-6">
-              <AppTitle>
-                Koordinator Rayon
-              </AppTitle>
+              <AppTitle>Koordinator Rayon</AppTitle>
             </h3>
             <p className="text-white mb-6 text-sm md:text-base">
               Hubungi koordinator sesuai wilayahmu untuk info lengkap seputar
-              OLMAT UINSA 2025.
+              OLMAT UINSA {APPCONSTANT.year}.
             </p>
 
             {regions.length > 0 && (
               <Tabs
-
                 defaultValue={activeRegion.id}
                 value={activeRegion.id}
                 onValueChange={(e) =>
@@ -238,9 +230,7 @@ export function ContactSection({ cities, regions }: IPops) {
                   <TabsContent key={region.id} value={region.id}>
                     <div className="glass p-6 rounded-xl shadow-md">
                       <h4 className="text-xl font-bold mb-2">
-                        <AppTitle>
-                          {region.name}
-                        </AppTitle>
+                        <AppTitle>{region.name}</AppTitle>
                       </h4>
                       <div className="text-xs flex gap-2 flex-wrap w-full">
                         {region.cities?.map((city, i) => (

@@ -49,68 +49,88 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     useLayout();
   const router = useRouter();
 
+  const logout = useCallback(() => {
+    deleteCookie("CBO_Token");
+    setUser(null);
+    router.push("/login");
+  }, [router]);
+
   const getMe = useCallback(async () => {
-    const res = await getMeAction();
-    if (res.user) {
-      if (res.user.data) {
-        if (res.user.data.type === "Admin") {
-          setUser({
-            id: res.user.data.id,
-            name: res.user.data.name,
-            email: res.user.data.email,
-            phone: res.user.data.phone,
-            type: res.user.data.type,
-            region: res.user.data.region,
-          });
-        } else {
-          setUser({
-            id: res.user.data.id,
-            name: res.user.data.name,
-            email: res.user.data.email,
-            phone: res.user.data.phone,
-            type: res.user.data.type,
-            region: res.user.data.region.id,
-            schoolName: res.user.data.school.name,
-            schoolId: res.user.data.school.id,
-            degreeId: res.user.data.school.degree.id,
-            degreeName: res.user.data.school.degree.name,
-            registerPrice: res.user.data.school.degree.register_price,
-          });
-        }
-      } else {
+    try {
+      const res = await getMeAction();
+
+      const data = res?.user?.data;
+
+      if (!data) {
         logout();
+        return;
       }
+
+      if (data.type === "Admin") {
+        setUser({
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          type: data.type,
+          region: data.region,
+        });
+      } else {
+        setUser({
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          type: data.type,
+          region: data.region,
+          schoolName: data.school?.name,
+          schoolId: data.school?.id,
+          degreeId: data.school?.degree?.id,
+          degreeName: data.school?.degree?.name,
+          registerPrice: data.school?.degree?.register_price,
+          school: data.school,
+        });
+      }
+    } catch (error) {
+      logout();
     }
-  }, []);
+  }, [logout]);
+
   useEffect(() => {
     getMe();
   }, []);
 
   const login = async (email: string, password: string) => {
     setIsLoading(true);
-    const res = await loginAction(email, password);
-    if (res.success) {
-      setCookie("CBO_Token", res.data.data.token, {
-        maxAge: 60 * 60 * 24 * 1,
-      });
-      setIsSuccess(true, "Selamat Kamu Berhasil Masuk");
-      router.push("/dashboard");
-      getMe();
-    } else {
-      const err = res.error as { status_code: number };
-      if (err.status_code === 404) {
-        setError(true, "Maaf Akun kamu tidak ditemukan");
-      }
-      if ((res.error as { status_code: number }).status_code === 422) {
-        setError(true, "Sepertinya Password kamu salah");
-      }
-    }
-  };
 
-  const logout = () => {
-    deleteCookie("CBO_Token");
-    setUser(null);
-    router.push("/login");
+    try {
+      const res = await loginAction(email, password);
+
+      if (res.success) {
+        setCookie("CBO_Token", res.data.data.token, {
+          maxAge: 60 * 60 * 24,
+        });
+
+        await getMe();
+
+        setIsSuccess(true, "Selamat Kamu Berhasil Masuk");
+        router.push("/dashboard");
+      } else {
+        const err = res.error as { status_code: number };
+
+        if (err.status_code === 404) {
+          setError(true, "Maaf Akun kamu tidak ditemukan");
+        } else if (err.status_code === 422) {
+          setError(true, "Sepertinya Password kamu salah");
+        } else {
+          setError(true, "Terjadi kesalahan saat login");
+        }
+      }
+    } catch (error) {
+      setError(true, "Terjadi kesalahan server");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

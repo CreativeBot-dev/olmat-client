@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LoginForm } from "./_components/login-form";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export const metadata: Metadata = {
-  title: "Login - Math Olympiad 2025",
-  description: "Login to your Math Olympiad 2025 account",
+  title: "Login - Math Olympiad",
+  description: "Login to your Math Olympiad account",
 };
 
 export default function LoginPage() {
@@ -17,7 +18,7 @@ export default function LoginPage() {
           </h1>
           <p className="text-sm text-muted-foreground">
             Masuk ke akunmu dan lanjutkan perjalanan seru menuju Olimpiade
-            Matematika UINSA 2025!
+            Matematika UINSA {APPCONSTANT.year}!
           </p>
         </div>
         <LoginForm />

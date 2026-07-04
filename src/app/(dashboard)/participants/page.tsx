@@ -3,9 +3,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getParticipantAction } from "./participant.action";
 import ParticipantClient from "./_components/ParticipantClient";
+import { APPCONSTANT } from "@/constant/App.constant";
 
 export const metadata: Metadata = {
-  title: "All Participants - Math Olympiad 2025",
+  title: `All Participants - Math Olympiad ${APPCONSTANT.year}`,
   description: "View all registered participants",
 };
 

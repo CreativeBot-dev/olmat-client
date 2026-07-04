@@ -6,12 +6,14 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { SlLocationPin } from "react-icons/sl";
 
 interface IProps {
-  isLanding: boolean
+  isLanding: boolean;
 }
 
 export function SiteFooter({ isLanding }: IProps) {
   return (
-    <footer className={` ${isLanding ? "bg-brandDark text-white" : "bg-white border-t"} `}>
+    <footer
+      className={` ${isLanding ? "bg-brandDark text-white" : "bg-white border-t"} `}
+    >
       <div className="container px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="md:col-span-2 flex flex-col md:flex-row gap-5 items-start">
@@ -26,9 +28,7 @@ export function SiteFooter({ isLanding }: IProps) {
             </div>
             <div>
               <h3 className="font-bold mb-2">{APPCONSTANT.fullName}</h3>
-              <p className="text-sm  italic">
-                {APPCONSTANT.theme}
-              </p>
+              <p className="text-sm  italic">{APPCONSTANT.theme}</p>
             </div>
           </div>
 
@@ -42,7 +42,9 @@ export function SiteFooter({ isLanding }: IProps) {
                     href={item.link}
                     className=" hover:scale-110 duration-300"
                   >
-                    <p className="w-4 h-4 text-2xl text-brandLight">{item.icon}</p>
+                    <p className="w-4 h-4 text-2xl text-brandLight">
+                      {item.icon}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -72,12 +74,13 @@ export function SiteFooter({ isLanding }: IProps) {
                 <Link
                   href={`https://api.whatsapp.com/send?phone=${APPCONSTANT.footer.mainWhatsApp.replace(
                     "+",
-                    ""
+                    "",
                   )}&text=Hai%20kak%20dengan%20OLMAT%20UINSA`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Adam : {APPCONSTANT.footer.mainWhatsApp.replace("62", "0")}
+                  {APPCONSTANT.footer.registerName} :{" "}
+                  {APPCONSTANT.footer.registerWhatsApp.replace("62", "0")}
                 </Link>
               </p>
               <p className="flex items-start gap-2">
@@ -97,7 +100,7 @@ export function SiteFooter({ isLanding }: IProps) {
 
         <div className="mt-8 pt-8 border-t text-center text-sm ">
           <p className="flex flex-wrap items-center gap-1 justify-center">
-            © 2025 OLMAT UINSA created by{" "}
+            © {APPCONSTANT.year} OLMAT UINSA created by{" "}
             <Link
               href="https://mcrama.vercel.app/"
               target="_blank"
@@ -123,21 +126,4 @@ export function SiteFooter({ isLanding }: IProps) {
 }
 
 {
-  /* <div className="mt-8 pt-8 border-t text-center text-sm  flex justify-center w-full items-center">
-  <p className="flex flex-wrap items-center gap-1">
-    © 2025 OLMAT UINSA created by{" "}
-    <Link
-      href="https://mcrama.vercel.app/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="font-bold inline-flex items-center gap-2 py-1 rounded"
-    >
-      <span className="relative w-5 h-5 inline-block">
-        <Image src="/cathabot.webp" alt="Cathabot Logo" fill />
-      </span>
-      <span>Cathabot.id</span>
-    </Link>
-    All rights reserved.
-  </p>
-</div>; */
 }
