@@ -92,6 +92,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         });
       }
     } catch (error) {
+      console.error("Error fetching user data:", error);
       logout();
     }
   }, [logout]);
@@ -127,6 +128,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
       }
     } catch (error) {
+      console.error("Login error:", error);
       setError(true, "Terjadi kesalahan server");
     } finally {
       setIsLoading(false);
