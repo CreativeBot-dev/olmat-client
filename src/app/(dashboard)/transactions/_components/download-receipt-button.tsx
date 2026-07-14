@@ -6,11 +6,7 @@ import { Receipt } from "lucide-react";
 import { jsPDF } from "jspdf";
 import { useLayout } from "@/hooks/zustand/layout";
 import { IPayment } from "@/interfaces/IPayments";
-import {
-  convertDate,
-  convertDateTimeServer,
-  convertRupiah,
-} from "@/helper/common";
+import { convertDateTimeServer, convertRupiah } from "@/helper/common";
 
 interface DownloadReceiptButtonProps {
   transction: IPayment;

@@ -14,7 +14,6 @@ const eslintConfig = [
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
-      // Error jika ada variable tidak digunakan
       "@typescript-eslint/no-unused-vars": [
         "error",
         {

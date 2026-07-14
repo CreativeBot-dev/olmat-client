@@ -1,9 +1,6 @@
-import { ThumbsUp } from "lucide-react";
 import { SiShopee } from "react-icons/si";
 import { PiFacebookLogo, PiInstagramLogo, PiTiktokLogo } from "react-icons/pi";
 import { TbBrandShopee } from "react-icons/tb";
-import { FaInstagram } from "react-icons/fa6";
-// FaTiktok
 
 export const APPCONSTANT = {
   name: "OLMAT UINSA",

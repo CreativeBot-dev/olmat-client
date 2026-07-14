@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { APPCONSTANT } from "@/constant/App.constant";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { EyeIcon, Heart, MessageCircleMore, ShoppingCart } from "lucide-react";
+import { MessageCircleMore, ShoppingCart } from "lucide-react";
 import { convertRupiah } from "@/helper/common";
 import Link from "next/link";
 import AppTitle from "../ui/AppTittle";
