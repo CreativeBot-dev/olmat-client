@@ -10,7 +10,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { setCookie, deleteCookie } from "cookies-next";
 import { useLayout } from "@/hooks/zustand/layout";
 import { getMeAction, loginAction } from "./auth.action";
@@ -48,12 +48,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const { setIsSuccess, setError, isLoading, isLoadingBlock, setIsLoading } =
     useLayout();
   const router = useRouter();
+  const pathname = usePathname();
 
   const logout = useCallback(() => {
     deleteCookie("CBO_Token");
     setUser(null);
-    router.push("/login");
-  }, [router]);
+
+    if (pathname === "/") {
+      router.refresh();
+      return;
+    }
+
+    router.replace("/login");
+  }, [pathname, router]);
 
   const getMe = useCallback(async () => {
     try {

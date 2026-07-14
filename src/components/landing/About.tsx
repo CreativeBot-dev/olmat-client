@@ -106,7 +106,7 @@ export function AboutSection({ participanCountData }: IProps) {
               <div className="flex justify-around">
                 <Link
                   target="_blank"
-                  href={"/pdf/JUKLAK JUKNIS OLMAT UINSA 2025.pdf"}
+                  href={"/pdf/JUKLAK JUKNIS OLMAT UINSA 2026.pdf"}
                 >
                   <Button className="text-brandDark font-bold bg-gradient-to-b from-brandLight via-white to-brandLight rounded-full hover:scale-110 duration-500 ease-in-out transition-all">
                     <Download />
@@ -156,7 +156,9 @@ export function AboutSection({ participanCountData }: IProps) {
                   <div className="h-12 w-12 rounded-full text-2xl text-brandDark bg-brandLight flex items-center justify-center mb-4">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg text-yellow-400 font-bold mb-2">{item.label}</h3>
+                  <h3 className="text-lg text-yellow-400 font-bold mb-2">
+                    {item.label}
+                  </h3>
                   <p className="text-white text-sm">{item.desc}</p>
                 </div>
                 {item.count > 100 && (

@@ -33,10 +33,7 @@ export default function PromotionSection() {
       <div className="mt-20">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
-            <AppTitle>
-
-              Sosial Media dan E-Commerce
-            </AppTitle>
+            <AppTitle>Sosial Media dan E-Commerce</AppTitle>
           </h2>
           <div className="w-20 h-1 bg-brandLight mx-auto mb-6"></div>
           <p className="text-lg max-w-3xl mx-auto">
@@ -44,7 +41,6 @@ export default function PromotionSection() {
               Ikuti info terbaru dan dapatkan merchandise resmi Olimpiade
               Matematika UINSA di sini!
             </AppTitle>
-
           </p>
         </div>
 
@@ -73,7 +69,9 @@ export default function PromotionSection() {
                 </p>
                 {APPCONSTANT.socialEcommerce.shopee.name}
               </div>
-              <p className="mt-4 text-white">{APPCONSTANT.socialEcommerce.shopee.desc}</p>
+              <p className="mt-4 text-white">
+                {APPCONSTANT.socialEcommerce.shopee.desc}
+              </p>
             </div>
             <motion.div
               initial="hidden"
@@ -106,11 +104,7 @@ export default function PromotionSection() {
                     </div>
                     <CardHeader className="p-4 pb-0 text-foreground/80"></CardHeader>
                     <CardContent className="p-4 pt-2">
-                      <p className="text-white">
-                        {item.label}
-
-
-                      </p>
+                      <p className="text-white">{item.label}</p>
                       <p className="font-bold w-full mb-3 text-lg">
                         <AppTitle>
                           {item.price === 0
@@ -144,7 +138,7 @@ export default function PromotionSection() {
             </motion.div>
           </TabsContent>
 
-          <TabsContent value="sosmed">
+          {/* <TabsContent value="sosmed">
             <div className="mb-7">
               <div className="flex gap-4 items-center font-bold text-xl">
                 <p className="text-orange-500 text-xl p-2 bg-brandDark/40 rounded-full">
@@ -161,7 +155,6 @@ export default function PromotionSection() {
               whileInView="visible"
               variants={containerVariants}
               viewport={{ once: true }}
-              // className="grid grid-cols-1 lg:grid-cols-3 items-center gap-12"
               className="grid grid-cols-1 md:grid-cols-3 items-center gap-5 lg:gap-12"
             >
               {APPCONSTANT.socialEcommerce.socialMedia.item.map((item, i) => (
@@ -180,7 +173,6 @@ export default function PromotionSection() {
                           sizes="1"
                           className="w-full h-48 object-cover transition-transform group-hover:scale-105"
                         />
-                        {/* {product.bestseller && <Badge className="absolute top-2 right-2 bg-amber-500">Bestseller</Badge>} */}
                         <CardContent className="absolute bg-black/0 group-hover:bg-black/50 duration-300 grid place-items-center w-full h-full inset-0  opacity-0 group-hover:opacity-100">
                           <div className="flex gap-4 text-white font-bold">
                             <p className="flex gap-2 items-center">
@@ -191,16 +183,13 @@ export default function PromotionSection() {
                             </p>
                           </div>
                         </CardContent>
-                        {/* <CardFooter className="absolute -bottom-3 pt-10 text-sm bg-gradient-to-b from-white/0 to-white z-0 w-full">
-                          {item.caption}
-                        </CardFooter> */}
                       </div>
                     </Card>
                   </Link>
                 </motion.div>
               ))}
             </motion.div>
-          </TabsContent>
+          </TabsContent> */}
 
           {/* <TabsContent value="Tiktok">
             <div className="mb-7">

@@ -28,85 +28,85 @@ export const APPCONSTANT = {
       username: "",
       item: [
         {
-          tumbnail: "/social/book_sd.webp",
-          label: "Buku Olmat Jenjang SD",
+          tumbnail: "/social/allBook.webp",
+          label: "Buku Kumpulan Soal Olmat dan Pembahasannya",
           price: 70000,
-          link: "https://id.shp.ee/4pU9zCc",
+          link: "https://id.shp.ee/ZNQQe5pN",
           chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
-        },
-        {
-          tumbnail: "/social/book_smp.webp",
-          label: "Buku Olmat Jenjang SMP",
-          price: 70000,
-          link: "https://id.shp.ee/4pU9zCc",
-          chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
-        },
-        {
-          tumbnail: "/social/book_sma.webp",
-          label: "Buku Olmat Jenjang SMA",
-          price: 70000,
-          link: "https://id.shp.ee/4pU9zCc",
-          chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
-        },
-      ],
-    },
-    socialMedia: {
-      icon: <ThumbsUp className="h-5 w-5" />,
-      name: "Social Media",
-      desc: "Ikuti akun Sosial Media kami untuk mendapatkan info terbaru seputar Olimpiade Matematika UINSA!",
-      username: "",
-      item: [
-        {
-          icon: <FaInstagram className="text-red-500" />,
-          key: "Instagram",
-          tumbnail: "/social/comingOut.png",
-          caption: "Persiapan Olimpiade Matematika UINSA 2024",
-          like: 245,
-          view: 417,
-          link: "https://www.instagram.com/reel/DJNQostTynO/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
-          embedUrl: "https://www.instagram.com/p/DJNQostTynO/embed/",
-        },
-        {
-          icon: <FaInstagram className="text-red-500" />,
-          key: "Instagram",
-          tumbnail: "/social/teaserIg.png",
-          caption: "Tips dan Trik Menghadapi Olimpiade Matematika",
-          like: 158,
-          view: 318,
-          link: "https://www.instagram.com/reel/DJMzNzBPJue/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
-          embedUrl: "https://www.instagram.com/p/DJMzNzBPJue/embed/",
         },
         // {
-        //   icon: <FaTiktok />,
-        //   key: "Tiktok",
-        //   tumbnail: "/images/tiktok/video-1.jpg",
-        //   caption:
-        //     "Persiapan Olimpiade Matematika UINSA 2024 #olmatuinsa #matematika",
-        //   like: 1245,
-        //   view: 15200,
-        //   link: "https://www.tiktok.com/@olmatuinsa/video/7501128312756899090?is_from_webapp=1&sender_device=pc&web_id=7419597193205958162",
-        //   embedUrl: "https://www.tiktok.com/embed/v2/7501128312756899090",
+        //   tumbnail: "/social/book_smp.webp",
+        //   label: "Buku Olmat Jenjang SMP",
+        //   price: 70000,
+        //   link: "https://id.shp.ee/4pU9zCc",
+        //   chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
         // },
         // {
-        //   icon: <FaTiktok />,
-        //   key: "Tiktok",
-        //   tumbnail: "/images/tiktok/video-2.jpg",
-        //   caption:
-        //     "Tips Jitu Menghadapi Soal Olimpiade Matematika #olmatuinsa #tipsmatematika",
-        //   like: 987,
-        //   view: 12400,
-        //   link: "https://www.tiktok.com/@olmatuinsa/video/7501131059292081416?is_from_webapp=1&sender_device=pc&web_id=7419597193205958162",
-        //   embedUrl: "https://www.tiktok.com/embed/v2/7501131059292081416",
+        //   tumbnail: "/social/book_sma.webp",
+        //   label: "Buku Olmat Jenjang SMA",
+        //   price: 70000,
+        //   link: "https://id.shp.ee/4pU9zCc",
+        //   chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
         // },
       ],
     },
+    // socialMedia: {
+    //   icon: <ThumbsUp className="h-5 w-5" />,
+    //   name: "Social Media",
+    //   desc: "Ikuti akun Sosial Media kami untuk mendapatkan info terbaru seputar Olimpiade Matematika UINSA!",
+    //   username: "",
+    //   item: [
+    //     {
+    //       icon: <FaInstagram className="text-red-500" />,
+    //       key: "Instagram",
+    //       tumbnail: "/social/comingOut.png",
+    //       caption: "Persiapan Olimpiade Matematika UINSA 2024",
+    //       like: 245,
+    //       view: 417,
+    //       link: "https://www.instagram.com/reel/DJNQostTynO/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
+    //       embedUrl: "https://www.instagram.com/p/DJNQostTynO/embed/",
+    //     },
+    //     {
+    //       icon: <FaInstagram className="text-red-500" />,
+    //       key: "Instagram",
+    //       tumbnail: "/social/teaserIg.png",
+    //       caption: "Tips dan Trik Menghadapi Olimpiade Matematika",
+    //       like: 158,
+    //       view: 318,
+    //       link: "https://www.instagram.com/reel/DJMzNzBPJue/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
+    //       embedUrl: "https://www.instagram.com/p/DJMzNzBPJue/embed/",
+    //     },
+    //     {
+    //       icon: <FaTiktok />,
+    //       key: "Tiktok",
+    //       tumbnail: "/images/tiktok/video-1.jpg",
+    //       caption:
+    //         "Persiapan Olimpiade Matematika UINSA 2024 #olmatuinsa #matematika",
+    //       like: 1245,
+    //       view: 15200,
+    //       link: "https://www.tiktok.com/@olmatuinsa/video/7501128312756899090?is_from_webapp=1&sender_device=pc&web_id=7419597193205958162",
+    //       embedUrl: "https://www.tiktok.com/embed/v2/7501128312756899090",
+    //     },
+    //     {
+    //       icon: <FaTiktok />,
+    //       key: "Tiktok",
+    //       tumbnail: "/images/tiktok/video-2.jpg",
+    //       caption:
+    //         "Tips Jitu Menghadapi Soal Olimpiade Matematika #olmatuinsa #tipsmatematika",
+    //       like: 987,
+    //       view: 12400,
+    //       link: "https://www.tiktok.com/@olmatuinsa/video/7501131059292081416?is_from_webapp=1&sender_device=pc&web_id=7419597193205958162",
+    //       embedUrl: "https://www.tiktok.com/embed/v2/7501131059292081416",
+    //     },
+    //   ],
+    // },
   },
 
   supportEvent: [
     {
       name: "Seminar Nasional",
       img: "/seminar.webp",
-      desc: "Constellation of Genius : Menyatukan Potensi Matematikawan Muda untuk Menerangi Peradaban",
+      desc: "Seminar Mathematics for the Future: Building Critical Thinking in the Digital Era bertujuan mengajak peserta memahami peran matematika sebagai fondasi dalam membangun kemampuan berpikir kritis, logis, dan analitis untuk menghadapi tantangan di era digital. Melalui seminar ini, peserta diharapkan memperoleh wawasan tentang pentingnya matematika dalam mendukung inovasi, pemecahan masalah, dan pengambilan keputusan di masa depan.",
       options: [
         {
           label: "Narasumber",
@@ -140,9 +140,9 @@ export const APPCONSTANT = {
     },
     {
       name: "Lomba Tilawah Tartil",
-      img: "/eventPidato.webp",
+      img: "/eventTilawah.webp",
       desc: "Membangun Peradaban Qur’ani Melalui Tilawah Tartil dalam",
-      juknis: "/pdf/juknisPidato.pdf",
+      juknis: "/pdf/juknisTilawah.pdf",
       options: [
         {
           label: "Peserta",
@@ -179,18 +179,18 @@ export const APPCONSTANT = {
       ],
       registerLink: "https://forms.gle/Dgs35ntcs4tmEkHBA",
     },
-    // {
-    //   name: "Mobile Legends",
-    //   img: "/comingSoon.png",
-    //   desc: "Bukan hanya otak, tapi juga kerjasama tim yang diuji! Turnamen Mobile Legends hadir untuk kamu yang ingin menunjukkan strategi dan kekompakan dalam dunia e-sports. Siapkan tim terbaikmu dan rebut gelar juara dalam pertandingan yang seru dan kompetitif!",
-    //   options: [
-    //     {
-    //       label: "Wilayah",
-    //       value: "Surabaya dan sekitarnya",
-    //     },
-    //   ],
-    //   registerLink: "",
-    // },
+    {
+      name: "Mobile Legends",
+      img: "/comingSoon.png",
+      desc: "Bukan hanya otak, tapi juga kerjasama tim yang diuji! Turnamen Mobile Legends hadir untuk kamu yang ingin menunjukkan strategi dan kekompakan dalam dunia e-sports. Siapkan tim terbaikmu dan rebut gelar juara dalam pertandingan yang seru dan kompetitif!",
+      options: [
+        {
+          label: "Wilayah",
+          value: "Surabaya dan sekitarnya",
+        },
+      ],
+      registerLink: "",
+    },
   ],
 
   timelineEvents: [

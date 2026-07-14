@@ -27,6 +27,13 @@ export function DownloadReceiptButton({
 }: DownloadReceiptButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { setIsSuccess, setError } = useLayout();
+  const convertDateBirth = (date: string | Date) => {
+    return new Date(date).toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
 
   const handleDownload = async () => {
     setIsLoading(true);
@@ -68,8 +75,8 @@ export function DownloadReceiptButton({
           doc.text(participant.name, 10, yPosition, { align: "left" });
 
           // Birth date column
-          const birthDate = convertDate(
-            new Date(participant.birth).toISOString()
+          const birthDate = convertDateBirth(
+            new Date(participant.birth).toISOString(),
           );
           doc.text(birthDate, 112, yPosition);
 
@@ -95,7 +102,7 @@ export function DownloadReceiptButton({
         ytotalPosition + 4.8,
         {
           align: "left",
-        }
+        },
       );
       doc.text(convertRupiah(transction.fee) || "", 110, ytotalPosition + 9.6, {
         align: "left",
@@ -106,7 +113,7 @@ export function DownloadReceiptButton({
         ytotalPosition + 15.7,
         {
           align: "left",
-        }
+        },
       );
       // Save the PDF
       doc.save(`receipt-${transction.invoice || paymentId}.pdf`);

@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const isProtectedPath = protectedPaths.some(
-    (path) => pathname === path || pathname.startsWith(`${path}/`)
+    (path) => pathname === path || pathname.startsWith(`${path}/`),
   );
 
   // const isPublicPath = publicPaths.some((path) => pathname === path || pathname.startsWith(`${path}/`))
@@ -46,7 +46,7 @@ export function middleware(request: NextRequest) {
 
     if (roleRestrictions) {
       const isRestrictedPath = roleRestrictions.restrictedPaths.some(
-        (path) => pathname === path || pathname.startsWith(`${path}/`)
+        (path) => pathname === path || pathname.startsWith(`${path}/`),
       );
 
       if (isRestrictedPath) {
