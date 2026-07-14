@@ -102,7 +102,7 @@ export const APPCONSTANT = {
   supportEvent: [
     {
       name: "Seminar Nasional",
-      img: "/seminar.webp",
+      img: "/seminar26.webp",
       desc: "Seminar Mathematics for the Future: Building Critical Thinking in the Digital Era bertujuan mengajak peserta memahami peran matematika sebagai fondasi dalam membangun kemampuan berpikir kritis, logis, dan analitis untuk menghadapi tantangan di era digital. Melalui seminar ini, peserta diharapkan memperoleh wawasan tentang pentingnya matematika dalam mendukung inovasi, pemecahan masalah, dan pengambilan keputusan di masa depan.",
       options: [
         {

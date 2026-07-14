@@ -19,7 +19,7 @@ export function SiteFooter({ isLanding }: IProps) {
           <div className="md:col-span-2 flex flex-col md:flex-row gap-5 items-start">
             <div className="relative aspect-square w-20 md:w-14">
               <Image
-                src={"/logo-olm.webp"}
+                src={"/logo-2026.webp"}
                 alt="logo-olmat"
                 fill
                 sizes="1"
