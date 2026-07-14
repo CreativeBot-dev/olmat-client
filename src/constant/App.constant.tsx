@@ -29,7 +29,7 @@ export const APPCONSTANT = {
           label: "Buku Kumpulan Soal Olmat dan Pembahasannya",
           price: 70000,
           link: "https://id.shp.ee/ZNQQe5pN",
-          chat: "https://api.whatsapp.com/send?phone=+6281558616119&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
+          chat: "https://api.whatsapp.com/send?phone=+6285731249725&text=Hai%20Kak%2C%20mau%20buku%20olmatnya%20dong",
         },
         // {
         //   tumbnail: "/social/book_smp.webp",
@@ -132,13 +132,12 @@ export const APPCONSTANT = {
           value: "Certificate, Knowledge, Snack, Relation, Entertainment",
         },
       ],
-      registerLink:
-        "https://docs.google.com/forms/d/e/1FAIpQLScywD0X3oAE8O7RyFYTPfaQd1OGCGIpaivQ0rbYHwIyyjomMA/viewform",
+      registerLink: "https://forms.gle/C3XsywZbabc3RAXz5",
     },
     {
       name: "Lomba Tilawah Tartil",
       img: "/eventTilawah.webp",
-      desc: "Membangun Peradaban Qur’ani Melalui Tilawah Tartil dalam",
+      desc: "Lomba Tilawah dengan tema Membangun Peradaban Qur’ani Melalui Tilawah Tartil bertujuan menumbuhkan kecintaan terhadap Al-Qur’an melalui pembacaan yang tartil, benar, dan sesuai kaidah tajwid. Kegiatan ini diharapkan dapat membentuk generasi yang berakhlak mulia, mencintai nilai-nilai Al-Qur’an, serta menjadikannya sebagai pedoman dalam membangun peradaban yang beriman, berilmu, dan berkarakter.",
       juknis: "/pdf/juknisTilawah.pdf",
       options: [
         {
@@ -174,7 +173,7 @@ export const APPCONSTANT = {
           value: "13 Oktober 2026",
         },
       ],
-      registerLink: "https://forms.gle/Dgs35ntcs4tmEkHBA",
+      registerLink: "https://forms.gle/ysCSy5bA1e3S2fYd7",
     },
     {
       name: "Mobile Legends",
@@ -239,7 +238,6 @@ export const APPCONSTANT = {
       {
         name: "Instagram",
         icon: <PiInstagramLogo />,
-
         link: "#",
       },
       {
@@ -255,7 +253,7 @@ export const APPCONSTANT = {
     ],
     shopee: {
       icon: <TbBrandShopee />,
-      link: "#",
+      link: "https://id.shp.ee/ZNQQe5pN",
     },
   },
 };
