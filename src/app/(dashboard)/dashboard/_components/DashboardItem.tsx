@@ -161,7 +161,7 @@ export function DashboardItem({ resDash }: IProps) {
           <CardFooter>
             <Button asChild className="w-full" variant="outline">
               <Link
-                href="https://chat.whatsapp.com/IMEJiar6iZ0KEeijbMD0yJ"
+                href="https://chat.whatsapp.com/IXxmcudlB2XBajLgCnV5zj"
                 target="_blank"
               >
                 Gabung Sekarang
