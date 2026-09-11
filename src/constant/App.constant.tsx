@@ -203,25 +203,25 @@ export const APPCONSTANT = {
         "Pendaftar yang melakukan registrasi antara 10 Juli – 16 Agustus 2026 berhak mengikuti Try Out Gratis pada 23 Agustus 2026.",
     },
     {
-      date: "10 September 2026",
+      date: "17 September 2026",
       title: "Penutupan Pendaftaran",
       description:
         "Hari terakhir pendaftaran OLMAT UINSA 2026. Peserta harus sudah melengkapi seluruh proses, mulai dari pengisian formulir, pembayaran, hingga konfirmasi.",
     },
     {
-      date: "19 September 2026",
+      date: "26 September 2026",
       title: "Babak Penyisihan",
       description:
         "Babak pertama olimpiade dilaksanakan online via platform Sibiti dan Zoom Meeting. Peserta terbaik akan dipilih berdasarkan peringkat nasional dan rayon untuk melaju ke babak semifinal​",
     },
     {
-      date: "3 Oktober 2026",
+      date: "10 Oktober 2026",
       title: "Babak Semifinal",
       description:
         "Peserta yang lolos melanjutkan ke semifinal dengan sistem pengawasan ketat (double device). Peringkat 10 terbaik tiap jenjang berhak maju ke babak final",
     },
     {
-      date: "17 Oktober 2026",
+      date: "24 Oktober 2026",
       title: "Babak Final",
       description:
         "Final diadakan secara luring (offline) di Fakultas Tarbiyah dan Keguruan UINSA Surabaya. Tahapan Tes tulis & Presentasi",
