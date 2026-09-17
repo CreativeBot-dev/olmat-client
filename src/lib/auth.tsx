@@ -58,6 +58,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       router.refresh();
       return;
     }
+    if (pathname !== "/forgot-pass") {
+      return;
+    }
 
     router.replace("/login");
   }, [pathname, router]);
@@ -65,15 +68,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const getMe = useCallback(async () => {
     try {
       const res = await getMeAction();
+      console.log("getme");
 
       const data = res?.user?.data;
 
       if (!data) {
+        console.log("auto out");
         logout();
         return;
       }
 
       if (data.type === "Admin") {
+        console.log("admin");
         setUser({
           id: data.id,
           name: data.name,
@@ -83,6 +89,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           region: data.region,
         });
       } else {
+        console.log("user");
         setUser({
           id: data.id,
           name: data.name,
@@ -99,6 +106,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         });
       }
     } catch (error) {
+      console.log("err");
       console.error("Error fetching user data:", error);
       logout();
     }
