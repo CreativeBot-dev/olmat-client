@@ -24,99 +24,249 @@ export function ParticipantCardButton({
   disabled = false,
 }: ParticipantCardButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
+
   const { setIsSuccess, setError } = useLayout();
+
+  /**
+   * Load image lalu convert menjadi Data URL
+   * supaya bisa digunakan oleh jsPDF
+   */
+  const loadImage = async (src: string): Promise<string> => {
+    try {
+      const response = await fetch(src);
+
+      if (!response.ok) {
+        throw new Error(
+          `Failed to load image: ${response.status} ${response.statusText}`,
+        );
+      }
+
+      const contentType = response.headers.get("content-type");
+
+      /**
+       * Pastikan response benar-benar image.
+       * Ini mencegah halaman HTML error / verification
+       * ikut dimasukkan sebagai foto peserta.
+       */
+      if (!contentType?.startsWith("image/")) {
+        throw new Error(
+          `URL did not return an image. Content-Type: ${contentType}`,
+        );
+      }
+
+      const blob = await response.blob();
+
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+          resolve(reader.result as string);
+        };
+
+        reader.onerror = reject;
+
+        reader.readAsDataURL(blob);
+      });
+    } catch (error) {
+      console.error("Error loading image:", error);
+      throw error;
+    }
+  };
 
   const handleDownload = async () => {
     setIsLoading(true);
 
     try {
-      // Create a new PDF document (A5 size)
+      /**
+       * ========================================
+       * CREATE PDF A5
+       * ========================================
+       *
+       * Portrait A5:
+       * width  = 148 mm
+       * height = 210 mm
+       */
       const doc = new jsPDF({
         orientation: "portrait",
         unit: "mm",
         format: "a5",
       });
 
-      // Get the participant image through our proxy
+      /**
+       * ========================================
+       * IMAGE URL
+       * ========================================
+       */
       const participantImageUrl = `/api/proxy-image?path=${encodeURIComponent(
-        `imgs/${imgUrl}`
+        `imgs/${imgUrl}`,
       )}`;
 
-      // For the ID card template, assuming it's in your public folder
-      // If it's also on your backend, adjust the path accordingly
       const idCardTemplate = "/idcard.webp";
 
-      // Load both images
+      /**
+       * Load foto peserta + background
+       */
       const [participantImageDataUrl, idCardTemplateDataUrl] =
         await Promise.all([
           loadImage(participantImageUrl),
           loadImage(idCardTemplate),
         ]);
 
-      // Add background image
+      /**
+       * ========================================
+       * BACKGROUND TEMPLATE
+       * ========================================
+       */
       doc.addImage({
         imageData: idCardTemplateDataUrl,
         x: 0,
         y: 0,
-        width: 148, // A5 width
-        height: 210, // A5 height
+        width: 148,
+        height: 210,
       });
 
-      // Add participant photo (in the placeholder area)
+      /**
+       * ========================================
+       * PARTICIPANT PHOTO
+       * ========================================
+       */
       doc.addImage({
         imageData: participantImageDataUrl,
-        x: 57, // Center of the placeholder
-        y: 45,
-        width: 34,
-        height: 48,
+
+        // Posisi horizontal foto
+        x: 52.2,
+
+        // Posisi vertical foto
+        y: 42,
+
+        // Lebar foto
+        width: 44,
+
+        // Tinggi foto
+        height: 60,
       });
 
-      // Add participant details
+      /**
+       * ========================================
+       * FONT SETTINGS
+       * ========================================
+       */
+
       doc.setFont("helvetica", "bold");
-      doc.setFontSize(12);
-      doc.setTextColor(255, 255, 255); // Black text
 
-      // Add participant name
-      doc.text(name || "", 31, 115, { align: "left" });
+      /**
+       * HITAM
+       *
+       * RGB:
+       * 0, 0, 0
+       */
+      doc.setTextColor(0, 0, 0);
 
-      // Add participant ID
-      doc.text(id || "", 31, 139, { align: "left" });
+      /**
+       * ========================================
+       * CENTER POSITION
+       * ========================================
+       *
+       * Lebar A5 = 148 mm
+       *
+       * Tengah halaman:
+       * 148 / 2 = 74
+       */
+      const centerX = 74;
 
-      // Add school name
-      doc.text(school || "", 31, 162.5, { align: "left" });
+      /**
+       * Lebar maksimal tulisan agar tetap
+       * berada dalam area kotak kuning.
+       */
+      const textMaxWidth = 104;
 
-      // Add rayon
-      doc.text(region || "", 31, 186.4, { align: "left" });
+      /**
+       * ========================================
+       * AUTO RESIZE + CENTER TEXT
+       * ========================================
+       *
+       * - teks rata tengah
+       * - font otomatis mengecil jika terlalu panjang
+       */
+      const drawFitText = (
+        text: string,
+        y: number,
+        maxWidth: number,
+        initialFontSize = 14,
+        minFontSize = 9,
+      ) => {
+        if (!text) return;
 
-      // Save the PDF
-      doc.save(`Kartu Peserta-${id}-${name}.pdf`);
+        let fontSize = initialFontSize;
+
+        doc.setFontSize(fontSize);
+
+        /**
+         * Kecilkan font sampai teks muat
+         */
+        while (doc.getTextWidth(text) > maxWidth && fontSize > minFontSize) {
+          fontSize -= 0.5;
+
+          doc.setFontSize(fontSize);
+        }
+
+        /**
+         * Tulis teks rata tengah
+         */
+        doc.text(text, centerX, y, {
+          align: "center",
+        });
+      };
+
+      /**
+       * ========================================
+       * PARTICIPANT DATA
+       * ========================================
+       */
+
+      /**
+       * NAMA LENGKAP
+       */
+      drawFitText(name || "", 124, textMaxWidth, 14);
+
+      /**
+       * NOMOR PESERTA
+       */
+      drawFitText(id || "", 147, textMaxWidth, 14);
+
+      /**
+       * ASAL SEKOLAH
+       */
+      drawFitText(school || "", 170.5, textMaxWidth, 12);
+
+      /**
+       * RAYON
+       */
+      drawFitText(region || "", 193, textMaxWidth, 14);
+
+      /**
+       * ========================================
+       * SAFE FILE NAME
+       * ========================================
+       */
+      const safeName = name?.replace(/[\\/:*?"<>|]/g, "").trim() || "peserta";
+
+      const safeId = id?.replace(/[\\/:*?"<>|]/g, "").trim() || "id";
+
+      /**
+       * ========================================
+       * DOWNLOAD PDF
+       * ========================================
+       */
+      doc.save(`Kartu Peserta-${safeId}-${safeName}.pdf`);
 
       setIsSuccess(true, "Participant card downloaded");
     } catch (error) {
       console.error("Error generating PDF:", error);
+
       setError(true, "Failed to download participant card");
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  // Helper function to load an image and convert it to a data URL
-  const loadImage = async (src: string): Promise<string> => {
-    try {
-      const response = await fetch(src);
-      if (!response.ok) {
-        throw new Error(`Failed to load image: ${response.statusText}`);
-      }
-      const blob = await response.blob();
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result as string);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-      });
-    } catch (error) {
-      console.error("Error loading image:", error);
-      throw error;
     }
   };
 
@@ -137,6 +287,7 @@ export function ParticipantCardButton({
       ) : (
         <Download className="w-4 h-4" />
       )}
+
       <span className="sr-only">Download Card</span>
     </Button>
   );
